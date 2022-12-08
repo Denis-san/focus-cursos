@@ -22,7 +22,7 @@
                      <graphic>
                         <ImageView fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icones/logo.png" />
+                              <Image url="@icones/logo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -67,7 +67,7 @@
                <children>
                   <ImageView fitHeight="504.0" fitWidth="547.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icones/undraw_Teacher_re_sico.png" />
+                        <Image url="@icones/undraw_Teacher_re_sico.png" />
                      </image>
                   </ImageView>
                </children>

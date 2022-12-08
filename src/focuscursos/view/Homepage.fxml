@@ -30,7 +30,7 @@
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@person-circle-100.png" />
+                        <Image url="@icones/login-cadastro.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -41,7 +41,7 @@
                <graphic>
                   <ImageView fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Paginas.png" />
+                        <Image url="@icones/logo.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -140,6 +140,206 @@
                      <image>
                         <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
                      </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.4099617004394531" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" graphicTextGap="5.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="195.0" style="-fx-padding: 0; -fx-background-color: white;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
                   </ImageView>
                </graphic>
                <font>

@@ -163,7 +163,7 @@
                      <graphic>
                         <ImageView fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icones/logo.png" />
+                              <Image url="@icones/logo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -192,7 +192,7 @@
                            <graphic>
                               <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icones/login-cadastro.png" />
+                                    <Image url="@icones/login-cadastro.png" />
                                  </image>
                               </ImageView>
                            </graphic>
