@@ -39,7 +39,7 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField promptText="Insira o título do curso aqui...">
+                                    <TextField fx:id="inputTituloCurso" promptText="Insira o título do curso aqui...">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -49,7 +49,7 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextArea prefHeight="116.0" prefWidth="326.0" />
+                                    <TextArea fx:id="inputDescricaoCurso" prefHeight="116.0" prefWidth="326.0" />
                                     <Separator prefWidth="200.0" />
                                     <Label alignment="CENTER" layoutX="30.0" layoutY="80.0" prefHeight="20.0" prefWidth="338.0" text="Imagem (thumbnail) do curso:">
                                        <font>
@@ -58,10 +58,10 @@
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: grey;">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="imageThumbnail" fitHeight="150.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </HBox>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #587d9f;" text="Anexar imagem" textFill="WHITE">
+                                    <Button fx:id="btnAnexarImagem" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #587d9f;" text="Anexar imagem" textFill="WHITE">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -90,19 +90,19 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="458.0" prefWidth="271.0">
                            <children>
-                              <ListView layoutX="-13.0" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <ListView fx:id="listaAulaAdicionadas" layoutX="-13.0" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                         <VBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="296.0">
                            <children>
                               <HBox spacing="20.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-border-color: #587d9f; -fx-background-color: transparent; -fx-border-radius: 3;" text="Editar" textFill="#587d9f">
+                                    <Button fx:id="btnEditar" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-border-color: #587d9f; -fx-background-color: transparent; -fx-border-radius: 3;" text="Editar" textFill="#587d9f">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #587d9f;" text="Remover aula" textFill="WHITE">
+                                    <Button fx:id="btnRemoverAula" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #587d9f;" text="Remover aula" textFill="WHITE">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -141,7 +141,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField promptText="Insira o título da aula...">
+                              <TextField fx:id="inputTituloAula" promptText="Insira o título da aula...">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -151,7 +151,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="30.0" layoutY="90.0" promptText="Insira o link (URL) do video desta aula...">
+                              <TextField fx:id="inputLinkAula" layoutX="30.0" layoutY="90.0" promptText="Insira o link (URL) do video desta aula...">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -175,7 +175,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="30.0" layoutY="303.0" promptText="Insira o nome do arquivo disponibilizado">
+                              <TextField fx:id="inputMaterialApoio" layoutX="30.0" layoutY="303.0" promptText="Insira o nome do arquivo disponibilizado">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -185,7 +185,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="30.0" layoutY="160.0" promptText="Insira o link (URL) dos arquivos desta aula...">
+                              <TextField fx:id="inputLinkArquivo" layoutX="30.0" layoutY="160.0" promptText="Insira o link (URL) dos arquivos desta aula...">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -195,12 +195,12 @@
                               </TextField>
                               <HBox alignment="CENTER_RIGHT" spacing="10.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="95.0" style="-fx-border-color: #587d9f; -fx-background-color: transparent; -fx-border-radius: 3;" text="Limpar" textFill="#587d9f">
+                                    <Button fx:id="btnLimpar" mnemonicParsing="false" prefHeight="27.0" prefWidth="95.0" style="-fx-border-color: #587d9f; -fx-background-color: transparent; -fx-border-radius: 3;" text="Limpar" textFill="#587d9f">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button layoutX="268.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #587d9f;" text="Adicionar aula" textFill="WHITE">
+                                    <Button fx:id="btnAdicionarAula" layoutX="268.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #587d9f;" text="Adicionar aula" textFill="WHITE">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
