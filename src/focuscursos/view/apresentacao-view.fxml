@@ -20,9 +20,9 @@
    <top>
       <Pane prefHeight="92.0" prefWidth="1209.0" style="-fx-background-color: #d6dfed;" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="401.0" layoutY="36.0" prefHeight="30.0" prefWidth="404.0" />
-            <Button layoutX="807.0" layoutY="36.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE" />
-            <Button layoutX="1141.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;">
+            <TextField fx:id="inputPesquisa" layoutX="401.0" layoutY="36.0" prefHeight="30.0" prefWidth="404.0" />
+            <Button fx:id="btnBuscar" layoutX="807.0" layoutY="36.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE" />
+            <Button fx:id="btnLogin" layoutX="1141.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,7 +33,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button layoutX="-2.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: #879895;">
+            <Button fx:id="btnLogo" layoutX="-2.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: #879895;">
                <graphic>
                   <ImageView fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
             <Label alignment="CENTER" prefHeight="67.0" prefWidth="183.0" style="-fx-background-color: #d6dfed;" text="Cursos" />
             <AnchorPane prefHeight="549.0" prefWidth="100.0">
                <children>
-                  <ListView layoutX="1.0" layoutY="22.0" prefHeight="495.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ListView fx:id="listaCursosAdquiridos" layoutX="1.0" layoutY="22.0" prefHeight="495.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </children>
@@ -65,7 +65,7 @@
                      <children>
                         <AnchorPane prefHeight="244.0" prefWidth="381.0">
                            <children>
-                              <ImageView fitHeight="251.0" fitWidth="384.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+                              <ImageView fx:id="imagemThumbnailCurso" fitHeight="251.0" fitWidth="384.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
                                  <image>
                                     <Image url="@../capa-curso/josefa-ndiaz-IzmdWT2lW5Q-unsplash.jpg" />
                                  </image>
@@ -90,7 +90,7 @@
                      <children>
                         <AnchorPane prefHeight="66.0" prefWidth="610.0">
                            <children>
-                              <Label layoutX="36.0" layoutY="37.0" prefHeight="28.0" prefWidth="610.0" text="Curso de JAVA FX - POO (CLASSES)" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label fx:id="labelTituloCurso" layoutX="36.0" layoutY="37.0" prefHeight="28.0" prefWidth="610.0" text="Curso de JAVA FX - POO (CLASSES)" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="System Bold" size="25.0" />
                                  </font>
@@ -99,7 +99,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="56.0" prefWidth="610.0">
                            <children>
-                              <Label layoutX="40.0" layoutY="19.0" prefHeight="20.0" prefWidth="188.0" text="Nome do instrutor" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                              <Label fx:id="labelNomeInstrutor" layoutX="40.0" layoutY="19.0" prefHeight="20.0" prefWidth="188.0" text="Nome do instrutor" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -108,7 +108,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="225.0" style="-fx-background-color: #587d9f;" text="Inscrever-se" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                              <Button fx:id="btnIncrever" mnemonicParsing="false" prefHeight="44.0" prefWidth="225.0" style="-fx-background-color: #587d9f;" text="Inscrever-se" textFill="WHITE" AnchorPane.leftAnchor="0.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
@@ -135,7 +135,7 @@
                               </Label>
                               <AnchorPane prefHeight="147.0" prefWidth="991.0">
                                  <children>
-                                    <Label text="Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst." textAlignment="JUSTIFY" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Label fx:id="labelDescricao" text="Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst." textAlignment="JUSTIFY" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
