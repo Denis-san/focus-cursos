@@ -16,13 +16,13 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.ApresentacaoController">
    <top>
       <Pane prefHeight="92.0" prefWidth="1209.0" style="-fx-background-color: #d6dfed;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="inputPesquisa" layoutX="401.0" layoutY="36.0" prefHeight="30.0" prefWidth="404.0" />
-            <Button fx:id="btnBuscar" layoutX="807.0" layoutY="36.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE" />
-            <Button fx:id="btnLogin" layoutX="1141.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;">
+            <TextField layoutX="401.0" layoutY="36.0" prefHeight="30.0" prefWidth="404.0" />
+            <Button layoutX="807.0" layoutY="36.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE" />
+            <Button layoutX="1141.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,7 +33,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="btnLogo" layoutX="-2.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: #879895;">
+            <Button layoutX="-2.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: #879895;">
                <graphic>
                   <ImageView fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -108,7 +108,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="btnIncrever" mnemonicParsing="false" prefHeight="44.0" prefWidth="225.0" style="-fx-background-color: #587d9f;" text="Inscrever-se" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                              <Button fx:id="btnIncrever" mnemonicParsing="false" onAction="#realizarInscricao" prefHeight="44.0" prefWidth="225.0" style="-fx-background-color: #587d9f;" text="Inscrever-se" textFill="WHITE" AnchorPane.leftAnchor="0.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
