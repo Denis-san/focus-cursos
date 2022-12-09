@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.TelaInicialController">
    <top>
       <BorderPane prefHeight="92.0" prefWidth="1209.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <left>
@@ -42,7 +42,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="btnEntrar" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: transparent; -fx-border-color: #587d9f; -fx-border-radius: 3;" text="Entrar" textFill="#587d9f">
+                        <Button fx:id="btnEntrar" mnemonicParsing="false" onAction="#abrirPaginaLogin" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: transparent; -fx-border-color: #587d9f; -fx-border-radius: 3;" text="Entrar" textFill="#587d9f">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -88,7 +88,7 @@
                   </Label>
                   <HBox spacing="10.0">
                      <children>
-                        <Button fx:id="btnEntrar" mnemonicParsing="false" style="-fx-background-color: #587d9f;" text="Entrar" textFill="WHITE">
+                        <Button fx:id="btnEntrar" mnemonicParsing="false" onAction="#abrirPaginaLogin" style="-fx-background-color: #587d9f;" text="Entrar" textFill="WHITE">
                            <padding>
                               <Insets bottom="10.0" left="45.0" right="45.0" top="10.0" />
                            </padding>
@@ -99,7 +99,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: #587d9f; -fx-border-radius: 3;" text="Cadrastrar-se" textFill="#587d9f">
+                        <Button fx:id="btnCadastrar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#abrirPaginaCadastro" style="-fx-background-color: transparent; -fx-border-color: #587d9f; -fx-border-radius: 3;" text="Cadrastrar-se" textFill="#587d9f">
                            <padding>
                               <Insets bottom="10.0" left="45.0" right="45.0" top="10.0" />
                            </padding>
