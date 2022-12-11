@@ -2,6 +2,7 @@ package focuscursos;
 
 import java.net.URL;
 import focuscursos.controller.constantes.Tela;
+import focuscursos.model.persistencia.ArquivoLogin;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,8 +14,15 @@ public class Aplicacao extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-
-		URL fxmlFilePath = getClass().getResource(Tela.TELA_INICIAL);
+		
+		boolean usuarioLogado = new ArquivoLogin().verificarLogon();
+		URL fxmlFilePath;
+		
+		if(usuarioLogado) {
+			fxmlFilePath = getClass().getResource(Tela.HOMEPAGE_VIEW);
+		}else {
+			fxmlFilePath = getClass().getResource(Tela.TELA_INICIAL);
+		}
 
 		Parent fxmlParent = (Parent) FXMLLoader.load(fxmlFilePath);
 		stage.setScene(new Scene(fxmlParent, 1209, 620));

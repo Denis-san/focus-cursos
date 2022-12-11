@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
+import focuscursos.model.persistencia.ArquivoLogin;
 import focuscursos.servicos.LoginServico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,6 +40,7 @@ public class LoginViewController {
     	if(servico.fazerLogin(email, senha)) {
     		try {
 				new NavegacaoTelas(painelLogin).novaJanela(Tela.HOMEPAGE_VIEW, "Homepage");
+				new ArquivoLogin().registrarLogin(true);
 			} catch (IOException | NullPointerException e) {
 				JOptionPane.showMessageDialog(null, "Erro ao carregar tela");
 			}
