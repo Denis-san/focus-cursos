@@ -17,200 +17,134 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.CadastroController">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <top>
-                  <VBox alignment="CENTER" prefHeight="29.0" prefWidth="1209.0" BorderPane.alignment="CENTER" />
-               </top>
-               <center>
-                  <BorderPane BorderPane.alignment="CENTER">
-                     <left>
-                        <AnchorPane prefHeight="455.0" prefWidth="302.0" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <AnchorPane prefHeight="455.0" prefWidth="302.0" BorderPane.alignment="CENTER" />
-                     </right>
-                     <center>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-                           <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="56.0" prefWidth="565.0">
-                                       <children>
-                                          <Label text="Cadastro">
-                                             <font>
-                                                <Font name="System Bold" size="30.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <Label text="Nome:">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="inputNome" promptText="Insira seu nome aqui...">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label layoutX="30.0" layoutY="30.0" text="Sobrenome:">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="inputSobrenome" layoutX="30.0" layoutY="50.0" promptText="Insira seu sobrenome...">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label layoutX="30.0" layoutY="80.0" text="Email:">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="inputEmail" layoutX="30.0" layoutY="100.0" promptText="Insira seu email aqui...">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label layoutX="30.0" layoutY="130.0" text="Senha:">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <PasswordField fx:id="inputSenha" promptText="Insira sua senha aqui...">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </PasswordField>
-                                    <GridPane hgap="20.0" prefHeight="62.0" prefWidth="565.0">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <VBox prefHeight="200.0" prefWidth="100.0">
-                                             <children>
-                                                <Label text="Telefone">
-                                                   <font>
-                                                      <Font name="System Bold" size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="inputTelefone" promptText="Insira seu telefone aqui...">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </TextField>
-                                             </children>
-                                          </VBox>
-                                          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                                             <children>
-                                                <Label text="Cpf:">
-                                                   <font>
-                                                      <Font name="System Bold" size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="inputCpf" promptText="Insira seu cpf aqui...">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </TextField>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </GridPane>
-                                    <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="81.0" prefWidth="565.0">
-                                       <children>
-                                          <Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#realizarCadastro" style="-fx-background-color: #587d9f; -fx-padding: 5 50 5 50;" text="Cadastrar" textFill="WHITE" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" layoutX="30.0" layoutY="442.0" prefHeight="19.0" prefWidth="565.0">
-                                       <children>
-                                          <Label text="Ja possui uma conta? " />
-                                          <Label fx:id="labelFacaLogin" layoutX="235.0" layoutY="19.0" onMouseClicked="#abrirTelaLogin" text="Faça o login" underline="true">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </center>
-                  </BorderPane>
-               </center>
-            </BorderPane>
-         </children></AnchorPane>
-   </center>
+<BorderPane prefHeight="534.0" prefWidth="1209.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.CadastroController">
    <top>
-      <BorderPane prefHeight="92.0" prefWidth="1209.0" style="-fx-background-color: #d6dfed;" BorderPane.alignment="CENTER">
-         <left>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: #879895; -fx-border-radius: 0; -fx-background-radius: 0;">
-                     <graphic>
-                        <ImageView fx:id="btnHomepage" fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icones/logo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </left>
-         <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TextField fx:id="inputPesquisar" prefHeight="30.0" prefWidth="404.0" />
-                        <Button fx:id="btnBuscar" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE" />
-                     </children>
-                  </HBox>
-               </children>
-            </AnchorPane>
-         </center>
-         <right>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fx:id="btnLogin" fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icones/login-cadastro.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </AnchorPane>
-         </right>
-      </BorderPane>
+      <VBox alignment="CENTER" prefHeight="29.0" prefWidth="1209.0" BorderPane.alignment="CENTER" />
    </top>
-   <bottom>
-      <AnchorPane prefHeight="30.0" prefWidth="1209.0" BorderPane.alignment="CENTER" />
-   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="284.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="565.0">
+               <children>
+                  <Label text="Cadastro">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label text="Nome:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="inputNome" promptText="Insira seu nome aqui...">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="30.0" layoutY="30.0" text="Sobrenome:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="inputSobrenome" layoutX="30.0" layoutY="50.0" promptText="Insira seu sobrenome...">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="30.0" layoutY="80.0" text="Email:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="inputEmail" layoutX="30.0" layoutY="100.0" promptText="Insira seu email aqui...">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="30.0" layoutY="130.0" text="Senha:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="inputSenha" promptText="Insira sua senha aqui...">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <GridPane hgap="20.0" prefHeight="62.0" prefWidth="565.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Telefone">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="inputTelefone" promptText="Insira seu telefone aqui...">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label text="Cpf:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="inputCpf" promptText="Insira seu cpf aqui...">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="81.0" prefWidth="565.0">
+               <children>
+                  <Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#realizarCadastro" style="-fx-background-color: #587d9f; -fx-padding: 5 50 5 50;" text="Cadastrar" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="30.0" layoutY="442.0" prefHeight="19.0" prefWidth="565.0">
+               <children>
+                  <Label text="Ja possui uma conta? " />
+                  <Label fx:id="labelFacaLogin" layoutX="235.0" layoutY="19.0" onMouseClicked="#abrirTelaLogin" text="Faça o login" underline="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+   <left>
+      <AnchorPane prefHeight="505.0" prefWidth="517.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="439.0" fitWidth="485.0" layoutX="16.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icones/undraw_Forms_re_pkrt.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="505.0" prefWidth="104.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>

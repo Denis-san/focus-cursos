@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.LoginViewController">
+<BorderPane fx:id="painelLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.LoginViewController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -69,10 +69,14 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="81.0" prefWidth="565.0">
                      <children>
+<<<<<<< HEAD
                         <Button fx:id="btnEntrar" mnemonicParsing="false" style="-fx-background-color: #587d9f; -fx-padding: 5 50 5 50;" text="Entrar" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
+=======
+                        <Button fx:id="btnEntrar" mnemonicParsing="false" onAction="#realizarLogin" style="-fx-background-color: #587d9f; -fx-padding: 5 50 5 50;" text="Entrar" textFill="WHITE" />
+>>>>>>> 22b73354150ce6acfe31d3ecd9f3c0f93f56dc8d
                      </children>
                   </HBox>
                </children>

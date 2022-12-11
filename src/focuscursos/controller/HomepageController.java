@@ -62,7 +62,7 @@ public class HomepageController {
 
     @FXML
     void abrirPaginaLogin(ActionEvent event) {
-    	System.out.println("fuf");
+    	
     }
 
 }
