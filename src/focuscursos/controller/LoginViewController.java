@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
+import focuscursos.servicos.LoginServico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,10 +28,28 @@ public class LoginViewController {
     @FXML
     private BorderPane painelLogin;
     
+    private LoginServico servico = new LoginServico();
+    
     @FXML
     void realizarLogin(ActionEvent event) {
+
+    	String email = inputEmail.getText();
+    	String senha = inputSenha.getText();
     	
+    	if(servico.fazerLogin(email, senha)) {
+    		try {
+				new NavegacaoTelas(painelLogin).novaJanela(Tela.HOMEPAGE_VIEW, "Homepage");
+			} catch (IOException | NullPointerException e) {
+				JOptionPane.showMessageDialog(null, "Erro ao carregar tela");
+			}
+    	}else {
+    		JOptionPane.showMessageDialog(null, "Login incorreto");
+    	}
+    	
+    	
+  
     }
+    
     
     
 

@@ -1,7 +1,7 @@
 package focuscursos;
 
 import java.net.URL;
-
+import focuscursos.controller.constantes.Tela;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +14,7 @@ public class Aplicacao extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 
-		URL fxmlFilePath = getClass().getResource("/focuscursos/view/tela-inicial-view.fxml");
+		URL fxmlFilePath = getClass().getResource(Tela.TELA_INICIAL);
 
 		Parent fxmlParent = (Parent) FXMLLoader.load(fxmlFilePath);
 		stage.setScene(new Scene(fxmlParent, 1209, 620));
