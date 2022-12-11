@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.TelaInicialController">
+<BorderPane fx:id="borderPanePrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.TelaInicialController">
    <top>
       <BorderPane prefHeight="92.0" prefWidth="1209.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <left>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: white; -fx-border-radius: 0; -fx-background-radius: 0;">
+                  <Button mnemonicParsing="false" onAction="#abrirTelaInicial" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: white; -fx-border-radius: 0; -fx-background-radius: 0;">
                      <graphic>
                         <ImageView fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -26,6 +26,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>
