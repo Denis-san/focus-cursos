@@ -102,3 +102,8 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 
 #.project
+
+# path javafx-lib/javafx-sdk-19/
+
+javafx-lib/javafx-sdk-19/
+
