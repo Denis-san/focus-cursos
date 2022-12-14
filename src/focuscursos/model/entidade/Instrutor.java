@@ -6,11 +6,16 @@ import java.util.List;
 
 public class Instrutor extends Usuario {
 
+	private static final long serialVersionUID = 1L;
 	private String cnpj;
 	private List<Curso> cursoCadastrados = new ArrayList<Curso>();
 
 	public Instrutor() {
 
+	}
+
+	public Instrutor(String nome, String email, String senha, String telefone, String sobrenome, String cpf) {
+		super(nome, email, senha, telefone, sobrenome, cpf);
 	}
 
 	public Instrutor(String cnpj) {
