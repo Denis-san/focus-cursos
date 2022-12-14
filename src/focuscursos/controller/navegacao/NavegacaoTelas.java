@@ -6,6 +6,7 @@ import focuscursos.controller.constantes.Tela;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -32,6 +33,7 @@ public class NavegacaoTelas {
 		Stage stage = new Stage();
 		stage.setTitle(title);
 		stage.setScene(new Scene(tela));
+		stage.getIcons().add(new Image("/focuscursos/view/icones/logo-favicon.png"));
 		painelPrincipal.getScene().getWindow().hide();
 		stage.show();
 	}

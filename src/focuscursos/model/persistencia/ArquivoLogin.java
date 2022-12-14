@@ -13,7 +13,6 @@ public class ArquivoLogin {
 	public boolean verificarLogon() throws IOException, ClassNotFoundException {
 		Boolean result;
 
-
 		try {
 			FileInputStream fileInput = new FileInputStream("arquivos/arquivoLogin.fc");
 
@@ -26,8 +25,6 @@ public class ArquivoLogin {
 			result = false;
 		}
 		
-		
-
 		return result;
 	}
 

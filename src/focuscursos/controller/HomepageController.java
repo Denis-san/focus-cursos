@@ -123,8 +123,8 @@ public class HomepageController implements Initializable {
 		btn.setText(curso.getTitulo());
 	}
 
-	private void abrirTelaApresentacao(Curso curso) {
-
+	private void abrirTelaApresentacao(Button btn) {
+		
 	}
 
 }
