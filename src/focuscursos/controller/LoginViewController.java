@@ -17,42 +17,37 @@ import javafx.scene.layout.BorderPane;
 
 public class LoginViewController {
 
-    @FXML
-    private Button btnEntrar;
+	@FXML
+	private Button btnEntrar;
 
-    @FXML
-    private TextField inputEmail;
+	@FXML
+	private TextField inputEmail;
 
-    @FXML
-    private PasswordField inputSenha;
-    
-    @FXML
-    private BorderPane painelLogin;
-    
-    private LoginServico servico = new LoginServico();
-    
-    @FXML
-    void realizarLogin(ActionEvent event) {
+	@FXML
+	private PasswordField inputSenha;
 
-    	String email = inputEmail.getText();
-    	String senha = inputSenha.getText();
-    	
-    	if(servico.fazerLogin(email, senha)) {
-    		try {
+	@FXML
+	private BorderPane painelLogin;
+
+	private LoginServico servico = new LoginServico();
+
+	@FXML
+	void realizarLogin(ActionEvent event) {
+
+		String email = inputEmail.getText();
+		String senha = inputSenha.getText();
+
+		try {
+			if (servico.fazerLogin(email, senha)) {
 				new NavegacaoTelas(painelLogin).novaJanela(Tela.HOMEPAGE_VIEW, "Homepage");
 				new ArquivoLogin().registrarLogin(true);
-			} catch (IOException | NullPointerException e) {
-				JOptionPane.showMessageDialog(null, "Erro ao carregar tela");
+			} else {
+				JOptionPane.showMessageDialog(null, "Login incorreto");
 			}
-    	}else {
-    		JOptionPane.showMessageDialog(null, "Login incorreto");
-    	}
-    	
-    	
-  
-    }
-    
-    
-    
+		} catch (ClassNotFoundException | IOException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao carregar tela");
+		}
+
+	}
 
 }

@@ -27,7 +27,6 @@ public class ArquivoLogin {
 		}
 		
 		
-		
 
 		return result;
 	}

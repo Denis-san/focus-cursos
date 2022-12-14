@@ -24,6 +24,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>
@@ -34,7 +37,10 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TextField fx:id="inputPesquisar" prefHeight="30.0" prefWidth="404.0" />
-                        <Button fx:id="btnBuscar" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE" />
+                        <Button fx:id="btnBuscar" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </HBox>
                </children>

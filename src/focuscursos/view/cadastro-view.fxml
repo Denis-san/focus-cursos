@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="534.0" prefWidth="1209.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.CadastroController">
+<BorderPane fx:id="borderSecundario" prefHeight="534.0" prefWidth="1209.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.CadastroController">
    <top>
       <VBox alignment="CENTER" prefHeight="29.0" prefWidth="1209.0" BorderPane.alignment="CENTER" />
    </top>
@@ -114,7 +114,10 @@
             </GridPane>
             <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="81.0" prefWidth="565.0">
                <children>
-                  <Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#realizarCadastro" style="-fx-background-color: #587d9f; -fx-padding: 5 50 5 50;" text="Cadastrar" textFill="WHITE" />
+                  <Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#realizarCadastro" style="-fx-background-color: #587d9f; -fx-padding: 5 50 5 50;" text="Cadastrar" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="30.0" layoutY="442.0" prefHeight="19.0" prefWidth="565.0">

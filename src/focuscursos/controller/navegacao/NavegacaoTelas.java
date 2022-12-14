@@ -10,12 +10,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class NavegacaoTelas {
+	
 	private BorderPane painelPrincipal;
 
 	public NavegacaoTelas(BorderPane painelPrincipal) {
 		this.painelPrincipal = painelPrincipal;
 	}
-
+	
 	public void mudarTela(String caminhoFxml) throws IOException {
 
 		Parent raiz = FXMLLoader.load(getClass().getResource(caminhoFxml));
@@ -26,8 +27,6 @@ public class NavegacaoTelas {
 
 	}
 	
-	
-	
 	public void novaJanela(String caminhoFxml, String title) throws IOException {
 		Parent tela = FXMLLoader.load(getClass().getResource(caminhoFxml));
 		Stage stage = new Stage();
@@ -35,10 +34,8 @@ public class NavegacaoTelas {
 		stage.setScene(new Scene(tela));
 		painelPrincipal.getScene().getWindow().hide();
 		stage.show();
-		
 	}
 	
-
 	public void retornarParaTelaInicial() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource(Tela.TELA_INICIAL));
 		painelPrincipal.getScene().setRoot(root);

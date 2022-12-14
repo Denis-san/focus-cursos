@@ -1,43 +1,29 @@
 package focuscursos.servicos;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.IOException;
 import java.util.List;
 
 import focuscursos.model.entidade.Usuario;
+import focuscursos.model.persistencia.ArquivoCadastro;
 
 public class LoginServico {
-	
-	
-	//fic
-	
-	List<Usuario> cadastros = new ArrayList<Usuario>();
-	
-	
-	
-	//end
-	
-	 
-	
-	
-	
-	public boolean fazerLogin(String email, String senha) {
 
-		cadastros.add(new Usuario("Joaquin", "joaquin@mail.com", "joaquinxixi123", "445444755", "Medeiros"));
-		cadastros.add(new Usuario("Joao", "joao@mail.com", "joao123", "7897897", "Souza"));
-		cadastros.add(new Usuario("Nilso", "nilso@mail.com", "nilso23", "4464546", "SIlva"));
-		cadastros.add(new Usuario("Aliso", "aliso@mail.com", "aliso123", "98797897", "XAma"));
+	private ArquivoCadastro arquivoPersistencia = new ArquivoCadastro();
+
+	public boolean fazerLogin(String email, String senha) throws ClassNotFoundException, IOException {
+
+		List<Usuario> cadastros = arquivoPersistencia.obterUsuariosCadastrados();
 
 		for (Usuario usuario : cadastros) {
-			
-			if(usuario.getEmail().equals(email)) {
-				
-				if(usuario.getSenha().equals(senha)) {
+
+			if (usuario.getEmail().equals(email)) {
+
+				if (usuario.getSenha().equals(senha)) {
 					return true;
 				}
 			}
 		}
-		
+
 		return false;
 	}
 }
