@@ -23,6 +23,7 @@ public class ArquivoLogin {
 			result = (Usuario) objectInput.readObject();
 
 			objectInput.close();
+			fileInput.close();
 		} catch (StreamCorruptedException | FileNotFoundException | EOFException e) {
 			registrarLogin(result);
 			result = null;
@@ -33,7 +34,7 @@ public class ArquivoLogin {
 		} else {
 			return true;
 		}
-
+		
 	}
 
 	public Usuario obterUsuarioLogado() throws IOException, ClassNotFoundException {

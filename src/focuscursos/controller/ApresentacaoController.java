@@ -49,8 +49,8 @@ public class ApresentacaoController implements Initializable {
 	@FXML
 	private BorderPane borderSecundario;
 
-    @FXML
-    private Label rotuloLista;
+	@FXML
+	private Label rotuloLista;
 
 	private Curso curso;
 
@@ -63,7 +63,9 @@ public class ApresentacaoController implements Initializable {
 	@FXML
 	void realizarInscricao(ActionEvent event) {
 		try {
-			cadastroUsuarioServico.inscreverUsuarioCurso(usuario, curso);
+			if (usuario.getCursos().contains(curso) == false) {
+				cadastroUsuarioServico.inscreverUsuarioCurso(usuario, curso);
+			}
 			new NavegacaoTelas(borderSecundario).novaJanela(Tela.AULA_VIEW, curso.getAulas().get(0).getTitulo());
 		} catch (ClassNotFoundException | IOException | UsuarioNaoEncontradoException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
@@ -77,6 +79,7 @@ public class ApresentacaoController implements Initializable {
 	}
 
 	public void carregarCurso(Curso cursoSelecionado) {
+
 		this.curso = cursoSelecionado;
 
 		labelTituloCurso.setText(cursoSelecionado.getTitulo());
@@ -86,6 +89,11 @@ public class ApresentacaoController implements Initializable {
 
 		try {
 			usuario = loginServico.obterUsuarioLogado();
+
+			if (usuario.getCursos().contains(cursoSelecionado)) {
+				btnIncrever.setText("Assistir aulas");
+			}
+
 			ObservableList<Curso> observableArrayList = FXCollections.observableArrayList(usuario.getCursos());
 			listaCursosAdquiridos.setItems(observableArrayList);
 
