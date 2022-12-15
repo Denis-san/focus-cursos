@@ -1,21 +1,28 @@
 package focuscursos.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
+import focuscursos.controller.constantes.Tela;
+import focuscursos.controller.navegacao.NavegacaoTelas;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
+import focuscursos.servicos.CursoServico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 
 public class HomepageController implements Initializable {
 
@@ -59,10 +66,10 @@ public class HomepageController implements Initializable {
 	private Button btnCurso9;
 
 	@FXML
-	private ImageView btnHomepage;
+	private Button btnHomepage;
 
 	@FXML
-	private Button btnLogin;
+	private MenuButton btnLogin;
 
 	@FXML
 	private TextField inputPesquisar;
@@ -71,13 +78,18 @@ public class HomepageController implements Initializable {
 	private ListView<?> listaCursosAdquiridos;
 
 	@FXML
+	private BorderPane painelPrincipal;
+
+	private CursoServico servico = new CursoServico();
+
+	@FXML
 	void abrirPaginaLogin(ActionEvent event) {
 
 	}
 
 	@FXML
 	void abrirApresentacoCurso(ActionEvent event) {
-		abrirApresentacoCurso(event);
+		abrirTelaApresentacao((Button) event.getSource());
 	}
 
 	@Override
@@ -85,8 +97,9 @@ public class HomepageController implements Initializable {
 
 		// lista teste
 		List<Curso> cursosTeste = new ArrayList<>();
-		cursosTeste.add(new Curso("Java - orientacao a objt", "Que nada ", "/focuscursos/view/capacurso/Img1.jpg",
-				new Instrutor()));
+		cursosTeste.add(new Curso("Java - Orientação a objeto",
+				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
+				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null)));
 		cursosTeste.add(new Curso("Python - orientacao", "dasdsccxzcxc   xzczxa ",
 				"/focuscursos/view/capacurso/Img2.jpg", new Instrutor()));
 		cursosTeste.add(new Curso("C - orientacao a lista", "adsadsdasd ", "/focuscursos/view/capacurso/Img3.jpg",
@@ -97,34 +110,57 @@ public class HomepageController implements Initializable {
 		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
 				new Instrutor()));
 		cursosTeste.add(
-				new Curso("Adm - muda nada", "Que nada ", "/focuscursos/view/capacurso/Img7.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("engenharia muda o que?", "dasdsccxzcxc   xzczxa ",
-				"/focuscursos/view/capacurso/Img8.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Churrascaria orientada a calculo 4", "adsadsdasd ",
-				"/focuscursos/view/capacurso/Img9.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Chesperito mostra como bater martelo", "Linguagem de doido",
-				"/focuscursos/view/capacurso/Img10.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Chaves ensina curso de pandeiro", "Ddjjiajljekd ",
-				"/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("O rei leão ensinando javascript - orientacao a objt", "Que nada ",
-				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor()));
+				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+				new Instrutor()));
+		cursosTeste.add(
+				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+				new Instrutor()));
+		cursosTeste.add(
+				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+				new Instrutor()));
+		cursosTeste.add(
+				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
+		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+				new Instrutor()));
 
 		Button gridBotoes[] = { btnCurso1, btnCurso2, btnCurso3, btnCurso4, btnCurso5, btnCurso6, btnCurso7, btnCurso8,
 				btnCurso9, btnCurso10, btnCurso11, btnCurso12 };
 
-		for (int i = 0; i < gridBotoes.length; i++) {
-			listar(gridBotoes[i], cursosTeste.get(i));
+		for (int i = 0; i < cursosTeste.size(); i++) {
+			try {
+				gridBotoes[i].setUserData(cursosTeste.get(i));
+				preencherBotaoCurso(gridBotoes[i]);
+			} catch (ArrayIndexOutOfBoundsException e) {
+				cursosTeste.remove(i);
+			}
 		}
+
+		// TODO Setar os botões la no fxml para visible = false
 
 	}
 
-	private void listar(Button btn, Curso curso) {
-		((ImageView) btn.getGraphic()).setImage(new Image(curso.getUrlImagem()));
-		btn.setText(curso.getTitulo());
+	private void preencherBotaoCurso(Button btn) {
+		Curso userDataCurso = (Curso) btn.getUserData();
+		((ImageView) btn.getGraphic()).setImage(new Image(userDataCurso.getUrlImagem()));
+		btn.setText(userDataCurso.getTitulo());
 	}
 
 	private void abrirTelaApresentacao(Button btn) {
-		
+		Curso cursoSelecionado = (Curso) btn.getUserData();
+
+		try {
+			new NavegacaoTelas(painelPrincipal).mudarTela(Tela.APRESENTACAO_CURSO, cursoSelecionado.getTitulo(), cursoSelecionado);
+		} catch (IOException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
+		}
 	}
 
 }

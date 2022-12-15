@@ -76,7 +76,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label fx:id="labelTituloAula" prefHeight="68.0" prefWidth="619.0" text="Aula 1: Smzinho rage extrema">
+                              <Label fx:id="labelTituloAula" prefHeight="68.0" prefWidth="619.0" text="Aula 1: Conhecendo a plataforma">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>

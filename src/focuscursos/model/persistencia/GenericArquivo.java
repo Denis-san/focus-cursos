@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenericArquivo<T extends Serializable> {
-	
+
 	List<T> listaElementos;
-	
+
 	public void cadastrar(T t, String caminhoArquivo) throws ClassNotFoundException, IOException {
 		listaElementos = obterElementosCadastrados(caminhoArquivo);
 
@@ -30,7 +30,7 @@ public class GenericArquivo<T extends Serializable> {
 		objectOutput.close();
 		fileOutput.close();
 	}
-	
+
 	public List<T> obterElementosCadastrados(String caminhoArquivo) throws IOException, ClassNotFoundException {
 
 		FileInputStream fileInput = new FileInputStream(caminhoArquivo);
@@ -47,6 +47,5 @@ public class GenericArquivo<T extends Serializable> {
 
 		return elementos;
 	}
-	
 
 }
