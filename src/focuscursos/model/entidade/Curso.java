@@ -4,11 +4,12 @@ package focuscursos.model.entidade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class Curso implements Serializable{
+public class Curso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String titulo;
 	private String descricao;
 	private String urlImagem;
@@ -57,7 +58,7 @@ public class Curso implements Serializable{
 	public void setInstrutor(Instrutor instrutor) {
 		this.instrutor = instrutor;
 	}
-	
+
 	public List<Aula> getAulas() {
 		return aulas;
 	}
@@ -67,5 +68,21 @@ public class Curso implements Serializable{
 		return titulo;
 	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(instrutor, titulo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Curso other = (Curso) obj;
+		return Objects.equals(instrutor, other.instrutor) && Objects.equals(titulo, other.titulo);
+	}
+
 }

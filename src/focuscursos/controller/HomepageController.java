@@ -17,6 +17,7 @@ import focuscursos.model.entidade.Aula;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
 import focuscursos.model.entidade.Usuario;
+import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
 import focuscursos.servicos.CursoServico;
 import focuscursos.servicos.LoginServico;
 import javafx.collections.FXCollections;
@@ -31,6 +32,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class HomepageController implements Initializable {
@@ -84,7 +86,7 @@ public class HomepageController implements Initializable {
 	private TextField inputPesquisar;
 
 	@FXML
-	private ListView<Curso> listaCursosAdquiridos;
+	private ListView<Curso> listaView;
 
 	@FXML
 	private BorderPane painelPrincipal;
@@ -99,8 +101,13 @@ public class HomepageController implements Initializable {
 	
 
 	@FXML
-	void abrirPaginaLogin(ActionEvent event) {
-
+	void irParaCurso(MouseEvent event) {
+		try {
+			Curso cursoSelecionado = listaView.getSelectionModel().getSelectedItem();
+			new NavegacaoTelas(painelPrincipal).novaJanela(Tela.AULA_VIEW, cursoSelecionado.getAulas().get(0).getTitulo());
+		} catch (IOException | NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
+		}
 	}
 
 	@FXML
@@ -160,8 +167,7 @@ public class HomepageController implements Initializable {
 				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
 		c1.getAulas().add(new Aula("Aula 1 - Conhecendo a plataforma", null, null, null));
 		cursosTeste.add(c1);
-		
-		
+
 		cursosTeste.add(new Curso("Python - orientacao", "dasdsccxzcxc   xzczxa ",
 				"/focuscursos/view/capacurso/Img2.jpg", new Instrutor()));
 		cursosTeste.add(new Curso("C - orientacao a lista", "adsadsdasd ", "/focuscursos/view/capacurso/Img3.jpg",
@@ -209,7 +215,7 @@ public class HomepageController implements Initializable {
 		try {
 			Usuario usuario = loginServico.obterUsuarioLogado();
 			ObservableList<Curso> observableArrayList = FXCollections.observableArrayList(usuario.getCursos());
-			listaCursosAdquiridos.setItems(observableArrayList);
+			listaView.setItems(observableArrayList);
 
 			if (usuario instanceof Aluno) {
 				rotuloLista.setText("Meus cursos");

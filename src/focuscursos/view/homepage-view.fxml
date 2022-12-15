@@ -342,7 +342,7 @@
                   <Label fx:id="rotuloLista" alignment="CENTER" prefHeight="67.0" prefWidth="183.0" style="-fx-background-color: #d6dfed;" text="Meus cursos" />
                   <AnchorPane prefHeight="549.0" prefWidth="100.0">
                      <children>
-                        <ListView fx:id="listaCursosAdquiridos" fixedCellSize="40.0" layoutX="1.0" layoutY="22.0" prefHeight="495.0" prefWidth="136.0" style="-fx-border-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ListView fx:id="listaView" fixedCellSize="40.0" layoutX="1.0" layoutY="22.0" onMouseClicked="#irParaCurso" prefHeight="495.0" prefWidth="136.0" style="-fx-border-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></ListView>
