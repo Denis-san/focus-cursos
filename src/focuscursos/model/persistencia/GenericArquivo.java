@@ -10,11 +10,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericArquivo<T extends Serializable> {
+import focuscursos.model.entidade.Usuario;
+import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
 
-	List<T> listaElementos;
+public class GenericArquivo<E extends Serializable> {
 
-	public void cadastrar(T t, String caminhoArquivo) throws ClassNotFoundException, IOException {
+	List<E> listaElementos;
+
+	public void cadastrar(E e, String caminhoArquivo) throws ClassNotFoundException, IOException {
 		listaElementos = obterElementosCadastrados(caminhoArquivo);
 
 		if (listaElementos == null) {
@@ -24,21 +27,21 @@ public class GenericArquivo<T extends Serializable> {
 		FileOutputStream fileOutput = new FileOutputStream(caminhoArquivo);
 		ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
 
-		listaElementos.add(t);
+		listaElementos.add(e);
 		objectOutput.writeObject(listaElementos);
 
 		objectOutput.close();
 		fileOutput.close();
 	}
 
-	public List<T> obterElementosCadastrados(String caminhoArquivo) throws IOException, ClassNotFoundException {
+	public List<E> obterElementosCadastrados(String caminhoArquivo) throws IOException, ClassNotFoundException {
 
 		FileInputStream fileInput = new FileInputStream(caminhoArquivo);
 
-		List<T> elementos = null;
+		List<E> elementos = null;
 
 		try (ObjectInputStream objectInput = new ObjectInputStream(fileInput)) {
-			elementos = (List<T>) objectInput.readObject();
+			elementos = (List<E>) objectInput.readObject();
 		} catch (EOFException e) {
 			elementos = null;
 		}
@@ -46,6 +49,27 @@ public class GenericArquivo<T extends Serializable> {
 		fileInput.close();
 
 		return elementos;
+	}
+
+	public void atualizarElemento(E elementoAntigo, E novoElemento, String caminhoArquivo)
+			throws ClassNotFoundException, IOException, UsuarioNaoEncontradoException {
+		List<E> elementos = obterElementosCadastrados(caminhoArquivo);
+
+		if (elementos == null) {
+			throw new UsuarioNaoEncontradoException("Erro! usuario não encontrado!");
+		}
+
+		int indexElemento = elementos.indexOf(elementoAntigo);
+
+		elementos.set(indexElemento, novoElemento);
+
+		FileOutputStream fileOutput = new FileOutputStream(caminhoArquivo);
+		ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
+
+		objectOutput.writeObject(elementos);
+
+		objectOutput.close();
+		fileOutput.close();
 	}
 
 }

@@ -164,9 +164,8 @@ public class HomepageController implements Initializable {
 		try {
 			Usuario usuario = loginServico.obterUsuarioLogado();
 			ObservableList<Curso> observableArrayList = FXCollections
-					.observableArrayList(((Aluno) usuario).getCursoAdquiridos());
+					.observableArrayList(usuario.getCursos());
 			listaCursosAdquiridos.setItems(observableArrayList);
-
 		} catch (ClassNotFoundException | IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}

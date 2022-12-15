@@ -43,8 +43,8 @@ public class LoginViewController {
 			Usuario usuario = servico.fazerLogin(email, senha);
 			
 			if (usuario != null) {
-				new NavegacaoTelas(painelLogin).novaJanela(Tela.HOMEPAGE_VIEW, "Homepage");
 				new ArquivoLogin().registrarLogin(usuario);
+				new NavegacaoTelas(painelLogin).novaJanela(Tela.HOMEPAGE_VIEW, "Homepage");
 			} else {
 				JOptionPane.showMessageDialog(null, "Login incorreto");
 			}

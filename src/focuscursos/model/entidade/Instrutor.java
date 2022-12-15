@@ -35,4 +35,9 @@ public class Instrutor extends Usuario implements Serializable {
 		return cursoCadastrados;
 	}
 
+	@Override
+	public List<Curso> getCursos() {
+		return cursoCadastrados;
+	}
+
 }

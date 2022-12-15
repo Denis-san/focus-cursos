@@ -2,13 +2,11 @@
 package focuscursos.model.entidade;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private List<Curso> cursoAdquiridos = new ArrayList<Curso>();
 
 	public Aluno() {
 
@@ -18,8 +16,9 @@ public class Aluno extends Usuario implements Serializable {
 		super(nome, email, senha, telefone, sobrenome, cpf);
 	}
 
-	public List<Curso> getCursoAdquiridos() {
-		return cursoAdquiridos;
+	@Override
+	public List<Curso> getCursos() {
+		return getCursoAdquiridos();
 	}
 
 }
