@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
 import focuscursos.model.entidade.Aluno;
+import focuscursos.model.entidade.Aula;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
 import focuscursos.model.entidade.Usuario;
@@ -22,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
@@ -85,6 +87,9 @@ public class HomepageController implements Initializable {
 	@FXML
 	private BorderPane painelPrincipal;
 
+	@FXML
+	private Label rotuloLista;
+
 	private CursoServico cursoServico = new CursoServico();
 
 	private LoginServico loginServico = new LoginServico();
@@ -114,9 +119,13 @@ public class HomepageController implements Initializable {
 
 		// lista teste
 		List<Curso> cursosTeste = new ArrayList<>();
-		cursosTeste.add(new Curso("Java - Orientação a objeto",
+		Curso c1 = new Curso("Java - Orientação a objeto",
 				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
-				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null)));
+				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
+		c1.getAulas().add(new Aula("Aula 1 - Conhecendo a plataforma", null, null, null));
+		cursosTeste.add(c1);
+		
+		
 		cursosTeste.add(new Curso("Python - orientacao", "dasdsccxzcxc   xzczxa ",
 				"/focuscursos/view/capacurso/Img2.jpg", new Instrutor()));
 		cursosTeste.add(new Curso("C - orientacao a lista", "adsadsdasd ", "/focuscursos/view/capacurso/Img3.jpg",
@@ -163,9 +172,15 @@ public class HomepageController implements Initializable {
 
 		try {
 			Usuario usuario = loginServico.obterUsuarioLogado();
-			ObservableList<Curso> observableArrayList = FXCollections
-					.observableArrayList(usuario.getCursos());
+			ObservableList<Curso> observableArrayList = FXCollections.observableArrayList(usuario.getCursos());
 			listaCursosAdquiridos.setItems(observableArrayList);
+
+			if (usuario instanceof Aluno) {
+				rotuloLista.setText("Meus cursos");
+			} else {
+				rotuloLista.setText("Meus cursos (Instrutor)");
+			}
+
 		} catch (ClassNotFoundException | IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}

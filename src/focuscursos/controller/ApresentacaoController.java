@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import focuscursos.controller.constantes.Tela;
+import focuscursos.controller.navegacao.NavegacaoTelas;
 import focuscursos.model.entidade.Aluno;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Usuario;
@@ -47,6 +49,9 @@ public class ApresentacaoController implements Initializable {
 	@FXML
 	private BorderPane borderSecundario;
 
+    @FXML
+    private Label rotuloLista;
+
 	private Curso curso;
 
 	private LoginServico loginServico = new LoginServico();
@@ -59,11 +64,11 @@ public class ApresentacaoController implements Initializable {
 	void realizarInscricao(ActionEvent event) {
 		try {
 			cadastroUsuarioServico.inscreverUsuarioCurso(usuario, curso);
+			new NavegacaoTelas(borderSecundario).novaJanela(Tela.AULA_VIEW, curso.getAulas().get(0).getTitulo());
 		} catch (ClassNotFoundException | IOException | UsuarioNaoEncontradoException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 
-		JOptionPane.showMessageDialog(null, "Cadastrado!");
 	}
 
 	@Override
@@ -81,9 +86,14 @@ public class ApresentacaoController implements Initializable {
 
 		try {
 			usuario = loginServico.obterUsuarioLogado();
-			ObservableList<Curso> observableArrayList = FXCollections
-					.observableArrayList(((Aluno) usuario).getCursoAdquiridos());
+			ObservableList<Curso> observableArrayList = FXCollections.observableArrayList(usuario.getCursos());
 			listaCursosAdquiridos.setItems(observableArrayList);
+
+			if (usuario instanceof Aluno) {
+				rotuloLista.setText("Meus cursos");
+			} else {
+				rotuloLista.setText("Meus cursos (Instrutor)");
+			}
 		} catch (ClassNotFoundException | IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}

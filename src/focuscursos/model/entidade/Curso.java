@@ -2,6 +2,8 @@
 package focuscursos.model.entidade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Curso implements Serializable{
 
@@ -11,6 +13,7 @@ public class Curso implements Serializable{
 	private String descricao;
 	private String urlImagem;
 	private Instrutor instrutor;
+	private List<Aula> aulas = new ArrayList<>();
 
 	public Curso() {
 
@@ -53,6 +56,10 @@ public class Curso implements Serializable{
 
 	public void setInstrutor(Instrutor instrutor) {
 		this.instrutor = instrutor;
+	}
+	
+	public List<Aula> getAulas() {
+		return aulas;
 	}
 
 	@Override
