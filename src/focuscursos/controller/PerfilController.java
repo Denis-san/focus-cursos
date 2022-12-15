@@ -1,6 +1,13 @@
 package focuscursos.controller;
 
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
+
+import focuscursos.model.entidade.Aluno;
 import focuscursos.model.entidade.Usuario;
+import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
+import focuscursos.servicos.CadastroServico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -53,9 +60,32 @@ public class PerfilController {
 
     @FXML
     private ListView<?> listaCursosAdquiridos;
+    
+    private Usuario oldUsuario;
+    
+    private CadastroServico cadastroServico = new CadastroServico();
 
     @FXML
     void atualizarCadastro(ActionEvent event) {
+    	
+    	
+    	Usuario usuario = new Aluno();
+    	usuario.setNome(inputNome.getText());
+    	usuario.setSobrenome(inputSobrenome.getText());
+    	usuario.setEmail(inputEmail.getText());
+    	usuario.setCpf(inputCpf.getText());
+    	usuario.setSenha(inputSenha.getText());
+    	usuario.setTelefone(inputTelefone.getText());
+    	
+    	try {
+			cadastroServico.atualizarCadastro(usuario, oldUsuario);
+			JOptionPane.showMessageDialog(null, "Dados atualizados!");
+		} catch (ClassNotFoundException | IOException | UsuarioNaoEncontradoException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+    	
+    	
+    	
     	
     }
 
@@ -71,7 +101,7 @@ public class PerfilController {
     	inputCpf.setText(usuario.getCpf());
     	inputSenha.setText(usuario.getSenha());
     	inputTelefone.setText(usuario.getTelefone());
-    	
+    	this.oldUsuario = usuario;
     }
 
 }

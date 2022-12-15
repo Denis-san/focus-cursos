@@ -10,7 +10,7 @@ import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
 
 public class CadastroServico {
 
-//	private ArquivoCadastro persistencia = new ArquivoCadastro();
+
 
 	private static final String CAMINHO_ARQUIVO = "arquivos/arquivoCadastro.fc";
 	private GenericArquivo<Usuario> persistencia = new GenericArquivo<>();
@@ -29,6 +29,11 @@ public class CadastroServico {
 		persistencia.atualizarElemento(usuario, usuarioAtualizar, CAMINHO_ARQUIVO);
 		
 		arquivoLogin.registrarLogin(usuarioAtualizar);
+	}
+	
+	
+	public void atualizarCadastro(Usuario usuario, Usuario oldUsuario) throws ClassNotFoundException, IOException, UsuarioNaoEncontradoException {
+		persistencia.atualizarElemento(oldUsuario, usuario, CAMINHO_ARQUIVO);
 	}
 
 }
