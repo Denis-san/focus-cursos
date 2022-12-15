@@ -9,5 +9,6 @@ public final class Tela {
 	public final static String LOGIN_VIEW = "/focuscursos/view/login-view.fxml";
 	public final static String TELA_INICIAL = "/focuscursos/view/tela-inicial-view.fxml";
 	public final static String TEMPLATE_VIEW = "/focuscursos/view/template-view.fxml";
+	public final static String PERFIL_VIEW = "/focuscursos/view/perfil-view.fxml";
 
 }

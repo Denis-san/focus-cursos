@@ -30,6 +30,13 @@ public class LoginServico {
 		return null;
 	}
 	
+	public void fazerLogoff() throws IOException {
+		arquivoLogin.apagarDadosConta();
+		
+	}
+	
+	
+	
 	public Usuario obterUsuarioLogado() throws ClassNotFoundException, IOException {
 		return arquivoLogin.obterUsuarioLogado();
 	}

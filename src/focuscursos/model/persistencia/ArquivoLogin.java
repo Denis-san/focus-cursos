@@ -58,5 +58,18 @@ public class ArquivoLogin {
 		objectOutput.close();
 
 	}
+	
+	
+	public void apagarDadosConta() throws IOException {
+
+		FileOutputStream fileOutput = new FileOutputStream("arquivos/arquivoLogin.fc");
+		ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
+		objectOutput.writeObject(null);
+		objectOutput.close();
+		fileOutput.close();
+		
+		
+		
+	}
 
 }

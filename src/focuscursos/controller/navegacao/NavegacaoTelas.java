@@ -3,8 +3,10 @@ package focuscursos.controller.navegacao;
 import java.io.IOException;
 
 import focuscursos.controller.ApresentacaoController;
+import focuscursos.controller.PerfilController;
 import focuscursos.controller.constantes.Tela;
 import focuscursos.model.entidade.Curso;
+import focuscursos.model.entidade.Usuario;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -65,5 +67,21 @@ public class NavegacaoTelas {
 		}
 
 	}
+	
+	public void mudarTela(String caminhoFxml, String tituloJanela, Usuario usuario) throws IOException {
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(caminhoFxml));
+		Parent raiz = loader.load();
+
+		PerfilController controller = loader.getController();
+		controller.carregarDados(usuario);
+		
+		((Stage) painelPrincipal.getScene().getWindow()).setTitle(tituloJanela);
+
+		if (painelPrincipal.getCenter() == null || painelPrincipal.getCenter().getParent().equals(raiz) == false) {
+			painelPrincipal.setCenter(raiz);
+		}
+	}
+	
 
 }

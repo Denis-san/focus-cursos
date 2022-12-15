@@ -397,8 +397,8 @@
                         <MenuButton fx:id="btnLogin" mnemonicParsing="false" style="-fx-background-color: transparent;">
                            <items>
                               <MenuItem mnemonicParsing="false" text="Modo Aluno" />
-                              <MenuItem mnemonicParsing="false" text="Perfil" />
-                              <MenuItem mnemonicParsing="false" text="Sair" />
+                              <MenuItem mnemonicParsing="false" onAction="#irPerfil" text="Perfil" />
+                              <MenuItem mnemonicParsing="false" onAction="#deslogar" text="Sair" />
                            </items>
                            <graphic>
                               <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">

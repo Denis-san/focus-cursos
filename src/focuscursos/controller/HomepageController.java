@@ -1,7 +1,9 @@
 package focuscursos.controller;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.security.Provider.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -93,6 +95,8 @@ public class HomepageController implements Initializable {
 	private CursoServico cursoServico = new CursoServico();
 
 	private LoginServico loginServico = new LoginServico();
+	
+	
 
 	@FXML
 	void abrirPaginaLogin(ActionEvent event) {
@@ -113,6 +117,38 @@ public class HomepageController implements Initializable {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 	}
+	
+	@FXML
+    void deslogar(ActionEvent event) {
+		
+		try {
+			loginServico.fazerLogoff();
+			
+			new NavegacaoTelas(painelPrincipal).retornarParaTelaInicial();
+			
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
+			
+		}
+		
+    }
+	
+	
+	@FXML
+    void irPerfil(ActionEvent event) {
+		
+		try {
+			Usuario usuario = loginServico.obterUsuarioLogado();
+			
+			new NavegacaoTelas(painelPrincipal).mudarTela(Tela.PERFIL_VIEW, "Meu perfil", usuario);
+		} catch (IOException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
+		}
+				
+		
+    }
+	
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -203,5 +239,7 @@ public class HomepageController implements Initializable {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 	}
+	
+	
 
 }
