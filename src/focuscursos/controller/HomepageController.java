@@ -10,9 +10,14 @@ import javax.swing.JOptionPane;
 
 import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
+import focuscursos.model.entidade.Aluno;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
+import focuscursos.model.entidade.Usuario;
 import focuscursos.servicos.CursoServico;
+import focuscursos.servicos.LoginServico;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,12 +80,14 @@ public class HomepageController implements Initializable {
 	private TextField inputPesquisar;
 
 	@FXML
-	private ListView<?> listaCursosAdquiridos;
+	private ListView<Curso> listaCursosAdquiridos;
 
 	@FXML
 	private BorderPane painelPrincipal;
 
-	private CursoServico servico = new CursoServico();
+	private CursoServico cursoServico = new CursoServico();
+
+	private LoginServico loginServico = new LoginServico();
 
 	@FXML
 	void abrirPaginaLogin(ActionEvent event) {
@@ -90,6 +97,16 @@ public class HomepageController implements Initializable {
 	@FXML
 	void abrirApresentacoCurso(ActionEvent event) {
 		abrirTelaApresentacao((Button) event.getSource());
+	}
+
+	@FXML
+	void abrirTelaHomepage(ActionEvent event) {
+		try {
+			new NavegacaoTelas(painelPrincipal).retornarParaHomePage();
+		} catch (IOException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
+		}
 	}
 
 	@Override
@@ -144,6 +161,16 @@ public class HomepageController implements Initializable {
 
 		// TODO Setar os botões la no fxml para visible = false
 
+		try {
+			Usuario usuario = loginServico.obterUsuarioLogado();
+			ObservableList<Curso> observableArrayList = FXCollections
+					.observableArrayList(((Aluno) usuario).getCursoAdquiridos());
+			listaCursosAdquiridos.setItems(observableArrayList);
+
+		} catch (ClassNotFoundException | IOException e) {
+			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
+		}
+
 	}
 
 	private void preencherBotaoCurso(Button btn) {
@@ -154,9 +181,9 @@ public class HomepageController implements Initializable {
 
 	private void abrirTelaApresentacao(Button btn) {
 		Curso cursoSelecionado = (Curso) btn.getUserData();
-
 		try {
-			new NavegacaoTelas(painelPrincipal).mudarTela(Tela.APRESENTACAO_CURSO, cursoSelecionado.getTitulo(), cursoSelecionado);
+			new NavegacaoTelas(painelPrincipal).mudarTela(Tela.APRESENTACAO_CURSO, cursoSelecionado.getTitulo(),
+					cursoSelecionado);
 		} catch (IOException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());

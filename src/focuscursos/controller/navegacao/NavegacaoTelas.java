@@ -44,6 +44,11 @@ public class NavegacaoTelas {
 		Parent root = FXMLLoader.load(getClass().getResource(Tela.TELA_INICIAL));
 		painelPrincipal.getScene().setRoot(root);
 	}
+	
+	public void retornarParaHomePage() throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource(Tela.HOMEPAGE_VIEW));
+		painelPrincipal.getScene().setRoot(root);
+	}
 
 	public void mudarTela(String caminhoFxml, String tituloJanela, Curso cursoSelecionado) throws IOException {
 

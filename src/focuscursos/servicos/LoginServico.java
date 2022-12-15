@@ -4,14 +4,16 @@ import java.io.IOException;
 import java.util.List;
 
 import focuscursos.model.entidade.Usuario;
+import focuscursos.model.persistencia.ArquivoLogin;
 import focuscursos.model.persistencia.GenericArquivo;
 
 public class LoginServico {
 
 	private static final String CAMINHO_ARQUIVO = "arquivos/arquivoCadastro.fc";
-	GenericArquivo<Usuario> persistencia = new GenericArquivo<>();
+	private GenericArquivo<Usuario> persistencia = new GenericArquivo<>();
+	private ArquivoLogin arquivoLogin = new ArquivoLogin();
 
-	public boolean fazerLogin(String email, String senha) throws ClassNotFoundException, IOException {
+	public Usuario fazerLogin(String email, String senha) throws ClassNotFoundException, IOException {
 
 		List<Usuario> cadastros = persistencia.obterElementosCadastrados(CAMINHO_ARQUIVO);
 
@@ -20,11 +22,15 @@ public class LoginServico {
 			if (usuario.getEmail().equals(email)) {
 
 				if (usuario.getSenha().equals(senha)) {
-					return true;
+					return usuario;
 				}
 			}
 		}
 
-		return false;
+		return null;
+	}
+	
+	public Usuario obterUsuarioLogado() throws ClassNotFoundException, IOException {
+		return arquivoLogin.obterUsuarioLogado();
 	}
 }

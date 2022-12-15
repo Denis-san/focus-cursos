@@ -1,8 +1,12 @@
 
 package focuscursos.model.entidade;
 
-public class Curso {
+import java.io.Serializable;
 
+public class Curso implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private String titulo;
 	private String descricao;
 	private String urlImagem;
@@ -51,4 +55,10 @@ public class Curso {
 		this.instrutor = instrutor;
 	}
 
+	@Override
+	public String toString() {
+		return titulo;
+	}
+
+	
 }

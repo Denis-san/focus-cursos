@@ -1,10 +1,11 @@
 
 package focuscursos.model.entidade;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aluno extends Usuario {
+public class Aluno extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private List<Curso> cursoAdquiridos = new ArrayList<Curso>();

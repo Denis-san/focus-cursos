@@ -1,7 +1,11 @@
 
 package focuscursos.model.entidade;
 
-public class Aula {
+import java.io.Serializable;
+
+public class Aula implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String titulo;
 	private String linkVideo;

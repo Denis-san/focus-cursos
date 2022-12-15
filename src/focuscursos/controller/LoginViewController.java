@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
+import focuscursos.model.entidade.Usuario;
 import focuscursos.model.persistencia.ArquivoLogin;
 import focuscursos.servicos.LoginServico;
 import javafx.event.ActionEvent;
@@ -38,9 +39,12 @@ public class LoginViewController {
 		String senha = inputSenha.getText();
 
 		try {
-			if (servico.fazerLogin(email, senha)) {
+			
+			Usuario usuario = servico.fazerLogin(email, senha);
+			
+			if (usuario != null) {
 				new NavegacaoTelas(painelLogin).novaJanela(Tela.HOMEPAGE_VIEW, "Homepage");
-				new ArquivoLogin().registrarLogin(true);
+				new ArquivoLogin().registrarLogin(usuario);
 			} else {
 				JOptionPane.showMessageDialog(null, "Login incorreto");
 			}
