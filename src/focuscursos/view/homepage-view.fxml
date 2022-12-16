@@ -24,7 +24,7 @@
 
 <BorderPane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.HomepageController">
    <center>
-      <BorderPane BorderPane.alignment="CENTER">
+      <BorderPane fx:id="borderSecundario" BorderPane.alignment="CENTER">
          <center>
             <GridPane hgap="10.0" prefHeight="568.0" prefWidth="1103.0" style="-fx-background-color: white;" vgap="20.0" BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -396,7 +396,7 @@
                      <children>
                         <MenuButton fx:id="btnLogin" mnemonicParsing="false" style="-fx-background-color: transparent;">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Modo Aluno" />
+                              <MenuItem fx:id="btnModoAluno" mnemonicParsing="false" onAction="#mudarModoAlunoInstrutor" text="Modo Aluno" />
                               <MenuItem mnemonicParsing="false" onAction="#irPerfil" text="Perfil" />
                               <MenuItem mnemonicParsing="false" onAction="#deslogar" text="Sair" />
                            </items>

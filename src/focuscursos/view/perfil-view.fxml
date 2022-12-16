@@ -4,7 +4,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -19,19 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="btnHomepage" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.PerfilController">
-   <left>
-      <VBox prefHeight="568.0" prefWidth="183.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" prefHeight="67.0" prefWidth="183.0" style="-fx-background-color: #d6dfed;" text="Cursos" />
-            <AnchorPane prefHeight="549.0" prefWidth="100.0">
-               <children>
-                  <ListView fx:id="listaCursosAdquiridos" layoutX="1.0" layoutY="22.0" prefHeight="495.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </VBox>
-   </left>
+<BorderPane fx:id="borderPrincipal" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.PerfilController">
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <left>
@@ -42,7 +29,7 @@
                         <Image url="@icones/undraw_Male_avatar_re_y880.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btnBuscar1" layoutX="123.0" layoutY="414.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #587d9f;" text="Cadastrar curso" textFill="WHITE">
+                  <Button fx:id="btnCadastrarCurso" disable="true" layoutX="123.0" layoutY="414.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #587d9f;" text="Cadastrar curso" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -136,7 +123,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="inputCpf" promptText="Insira seu cpf aqui...">
+                              <TextField fx:id="inputCpf" disable="true" editable="false" promptText="Insira seu cpf aqui...">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

@@ -60,6 +60,8 @@ public class GenericArquivo<E extends Serializable> {
 		}
 
 		int indexElemento = elementos.indexOf(elementoAntigo);
+		
+		System.out.println("index: " + indexElemento);
 
 		elementos.set(indexElemento, novoElemento);
 

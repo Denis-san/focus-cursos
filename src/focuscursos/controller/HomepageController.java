@@ -1,9 +1,7 @@
 package focuscursos.controller;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.security.Provider.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -17,8 +15,6 @@ import focuscursos.model.entidade.Aula;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
 import focuscursos.model.entidade.Usuario;
-import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
-import focuscursos.servicos.CursoServico;
 import focuscursos.servicos.LoginServico;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -92,20 +89,28 @@ public class HomepageController implements Initializable {
 	private BorderPane painelPrincipal;
 
 	@FXML
+	private BorderPane borderSecundario;
+
+	@FXML
+	private MenuItem btnModoAluno;
+
+	@FXML
 	private Label rotuloLista;
 
-	private CursoServico cursoServico = new CursoServico();
-
 	private LoginServico loginServico = new LoginServico();
-	
-	
+
+	private boolean modoAlunoAtivo = false;
 
 	@FXML
 	void irParaCurso(MouseEvent event) {
 		try {
 			Curso cursoSelecionado = listaView.getSelectionModel().getSelectedItem();
-			new NavegacaoTelas(painelPrincipal).novaJanela(Tela.AULA_VIEW, cursoSelecionado.getAulas().get(0).getTitulo());
-		} catch (IOException | NullPointerException e) {
+
+			if (cursoSelecionado != null) {
+				new NavegacaoTelas(painelPrincipal).novaJanela(Tela.AULA_VIEW,
+						cursoSelecionado.getAulas().get(0).getTitulo());
+			}
+		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 	}
@@ -124,38 +129,65 @@ public class HomepageController implements Initializable {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 	}
-	
+
 	@FXML
-    void deslogar(ActionEvent event) {
-		
+	void deslogar(ActionEvent event) {
+
 		try {
 			loginServico.fazerLogoff();
-			
+
 			new NavegacaoTelas(painelPrincipal).retornarParaTelaInicial();
-			
+
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
-			
+
 		}
-		
-    }
-	
-	
+
+	}
+
 	@FXML
-    void irPerfil(ActionEvent event) {
-		
+	void irPerfil(ActionEvent event) {
+
 		try {
 			Usuario usuario = loginServico.obterUsuarioLogado();
-			
-			new NavegacaoTelas(painelPrincipal).mudarTela(Tela.PERFIL_VIEW, "Meu perfil", usuario);
+			new NavegacaoTelas(borderSecundario).mudarTela(Tela.PERFIL_VIEW, "Meu perfil", usuario);
 		} catch (IOException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
-				
-		
-    }
-	
-	
+
+	}
+
+	@FXML
+	void mudarModoAlunoInstrutor(ActionEvent event) {
+		ObservableList<Curso> observableArrayList = null;
+		Usuario usuario;
+
+		try {
+
+			usuario = loginServico.obterUsuarioLogado();
+
+			if (usuario instanceof Instrutor) {
+				if (modoAlunoAtivo == false) {
+					observableArrayList = FXCollections.observableArrayList(usuario.getCursosAdquiridos());
+					modoAlunoAtivo = true;
+					rotuloLista.setText("Meus cursos");
+					btnModoAluno.setText("modo instrutor");
+				} else {
+					observableArrayList = FXCollections.observableArrayList(usuario.getCursos());
+					modoAlunoAtivo = false;
+					rotuloLista.setText("Meus cursos (Instrutor)");
+					btnModoAluno.setText("modo Aluno");
+				}
+
+			}
+
+		} catch (ClassNotFoundException | IOException e) {
+			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
+		}
+
+		listaView.setItems(observableArrayList);
+
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -214,11 +246,13 @@ public class HomepageController implements Initializable {
 
 		try {
 			Usuario usuario = loginServico.obterUsuarioLogado();
+
 			ObservableList<Curso> observableArrayList = FXCollections.observableArrayList(usuario.getCursos());
 			listaView.setItems(observableArrayList);
 
 			if (usuario instanceof Aluno) {
 				rotuloLista.setText("Meus cursos");
+				btnModoAluno.setVisible(false);
 			} else {
 				rotuloLista.setText("Meus cursos (Instrutor)");
 			}
@@ -238,14 +272,12 @@ public class HomepageController implements Initializable {
 	private void abrirTelaApresentacao(Button btn) {
 		Curso cursoSelecionado = (Curso) btn.getUserData();
 		try {
-			new NavegacaoTelas(painelPrincipal).mudarTela(Tela.APRESENTACAO_CURSO, cursoSelecionado.getTitulo(),
+			new NavegacaoTelas(borderSecundario).mudarTela(Tela.APRESENTACAO_CURSO, cursoSelecionado.getTitulo(),
 					cursoSelecionado);
 		} catch (IOException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 	}
-	
-	
 
 }

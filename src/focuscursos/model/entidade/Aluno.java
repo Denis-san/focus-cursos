@@ -18,7 +18,9 @@ public class Aluno extends Usuario implements Serializable {
 
 	@Override
 	public List<Curso> getCursos() {
-		return getCursoAdquiridos();
+		return getCursosAdquiridos();
 	}
+	
+	
 
 }

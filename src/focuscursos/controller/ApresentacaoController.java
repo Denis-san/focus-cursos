@@ -8,25 +8,21 @@ import javax.swing.JOptionPane;
 
 import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
-import focuscursos.model.entidade.Aluno;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Usuario;
 import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
 import focuscursos.servicos.CadastroServico;
 import focuscursos.servicos.LoginServico;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
-public class ApresentacaoController implements Initializable{
+public class ApresentacaoController implements Initializable {
 
 	@FXML
 	private Button btnIncrever;
@@ -44,13 +40,7 @@ public class ApresentacaoController implements Initializable{
 	private Label labelTituloCurso;
 
 	@FXML
-	private ListView<Curso> listaCursosAdquiridos;
-
-	@FXML
 	private BorderPane borderSecundario;
-
-	@FXML
-	private Label rotuloLista;
 
 	private Curso curso;
 
@@ -92,21 +82,13 @@ public class ApresentacaoController implements Initializable{
 
 			if (usuario.getCursos().contains(cursoSelecionado)) {
 				btnIncrever.setText("Assistir aulas");
+				btnIncrever.setStyle("-fx-background-color: white; -fx-border-color: #587d9f; -fx-text-fill: #587d9f;");
+
 			}
 
-			ObservableList<Curso> observableArrayList = FXCollections.observableArrayList(usuario.getCursos());
-			listaCursosAdquiridos.setItems(observableArrayList);
-
-			if (usuario instanceof Aluno) {
-				rotuloLista.setText("Meus cursos");
-			} else {
-				rotuloLista.setText("Meus cursos (Instrutor)");
-			}
 		} catch (ClassNotFoundException | IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 	}
-
-	
 
 }

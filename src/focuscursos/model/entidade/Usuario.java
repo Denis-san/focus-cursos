@@ -79,7 +79,7 @@ public abstract class Usuario implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public List<Curso> getCursoAdquiridos() {
+	public List<Curso> getCursosAdquiridos() {
 		return cursoAdquiridos;
 	}
 
@@ -93,7 +93,7 @@ public abstract class Usuario implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cpf, email);
+		return Objects.hash(cpf);
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public abstract class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		return Objects.equals(cpf, other.cpf) && Objects.equals(email, other.email);
+		return Objects.equals(cpf, other.cpf);
 	}
 
 }

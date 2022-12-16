@@ -40,4 +40,9 @@ public class LoginServico {
 	public Usuario obterUsuarioLogado() throws ClassNotFoundException, IOException {
 		return arquivoLogin.obterUsuarioLogado();
 	}
+
+	public void registrarLoginNoArquivo(Usuario usuario) throws IOException {
+		arquivoLogin.registrarLogin(usuario);
+		
+	}
 }
