@@ -11,8 +11,6 @@ import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
 
 public class CadastroServico {
 
-
-
 	private static final String CAMINHO_ARQUIVO = "arquivos/arquivoCadastro.fc";
 	private GenericArquivo<Usuario> persistencia = new GenericArquivo<>();
 	private ArquivoLogin arquivoLogin = new ArquivoLogin();

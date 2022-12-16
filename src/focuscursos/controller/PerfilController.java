@@ -78,7 +78,7 @@ public class PerfilController {
 	void atualizarCadastro(ActionEvent event) {
 
 		Usuario usuarioAtualizado = oldUsuario;
-		
+
 		usuarioAtualizado.setNome(inputNome.getText());
 		usuarioAtualizado.setSobrenome(inputSobrenome.getText());
 		usuarioAtualizado.setEmail(inputEmail.getText());
@@ -95,12 +95,21 @@ public class PerfilController {
 	}
 
 	@FXML
+	void abrirTelaCadastroVideo(ActionEvent event) {
+		try {
+			new NavegacaoTelas(borderPrincipal).mudarTela(Tela.CADASTRO_VIDEO_VIEW);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+	}
+
+	@FXML
 	void tornarInstrutor(ActionEvent event) {
 
 		try {
 
 			Usuario usuario = instanciarInstrutorDe(oldUsuario);
-			
+
 			cadastroServico.atualizarCadastro(oldUsuario, usuario);
 
 			JOptionPane.showMessageDialog(null, "Dados atualizados!\nPronto! Você agora é um instrutor!");
@@ -109,7 +118,7 @@ public class PerfilController {
 
 			JOptionPane.showMessageDialog(null,
 					"Para efetivar o modo instrutor Você precisa realizar o\n login novamente no sistema!");
-			
+
 			loginServico.fazerLogoff();
 			new NavegacaoTelas(borderPrincipal).novaJanela(Tela.LOGIN_VIEW, "Realize seu login");
 
@@ -133,14 +142,14 @@ public class PerfilController {
 	}
 
 	public void carregarDados(Usuario usuario) {
-		
+
 		inputNome.setText(usuario.getNome());
 		inputSobrenome.setText(usuario.getSobrenome());
 		inputEmail.setText(usuario.getEmail());
 		inputCpf.setText(usuario.getCpf());
 		inputSenha.setText(usuario.getSenha());
 		inputTelefone.setText(usuario.getTelefone());
-		
+
 		this.oldUsuario = usuario;
 
 		if (usuario instanceof Instrutor) {

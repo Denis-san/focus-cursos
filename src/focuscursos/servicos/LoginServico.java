@@ -17,6 +17,10 @@ public class LoginServico {
 
 		List<Usuario> cadastros = persistencia.obterElementosCadastrados(CAMINHO_ARQUIVO);
 
+		if (cadastros == null) {
+			return null;
+		}
+
 		for (Usuario usuario : cadastros) {
 
 			if (usuario.getEmail().equals(email)) {
@@ -29,17 +33,17 @@ public class LoginServico {
 
 		return null;
 	}
-	
+
 	public void fazerLogoff() throws IOException {
 		arquivoLogin.apagarDadosConta();
 	}
-	
+
 	public Usuario obterUsuarioLogado() throws ClassNotFoundException, IOException {
 		return arquivoLogin.obterUsuarioLogado();
 	}
 
 	public void registrarLoginNoArquivo(Usuario usuario) throws IOException {
 		arquivoLogin.registrarLogin(usuario);
-		
+
 	}
 }

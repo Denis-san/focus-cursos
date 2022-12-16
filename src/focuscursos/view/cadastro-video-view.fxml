@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.CadastroCursoController">
+<BorderPane fx:id="borderPrincipal" prefHeight="660.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="focuscursos.controller.CadastroCursoController">
    <center>
       <AnchorPane prefHeight="504.0" prefWidth="1209.0" BorderPane.alignment="CENTER">
          <children>
@@ -260,60 +260,4 @@
             </BorderPane>
          </children></AnchorPane>
    </center>
-   <top>
-      <BorderPane prefHeight="92.0" prefWidth="1209.0" style="-fx-background-color: #d6dfed;" BorderPane.alignment="CENTER">
-         <left>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="96.0" prefWidth="186.0" style="-fx-background-color: #879895; -fx-border-radius: 0; -fx-background-radius: 0;">
-                     <graphic>
-                        <ImageView fitHeight="49.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icones/logo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </left>
-         <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TextField prefHeight="30.0" prefWidth="404.0" />
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #587d9f;" text="Buscar" textFill="WHITE" />
-                     </children>
-                  </HBox>
-               </children>
-            </AnchorPane>
-         </center>
-         <right>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icones/login-cadastro.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </AnchorPane>
-         </right>
-      </BorderPane>
-   </top>
 </BorderPane>

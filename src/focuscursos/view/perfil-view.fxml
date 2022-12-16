@@ -29,7 +29,7 @@
                         <Image url="@icones/undraw_Male_avatar_re_y880.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btnCadastrarCurso" disable="true" layoutX="123.0" layoutY="414.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #587d9f;" text="Cadastrar curso" textFill="WHITE">
+                  <Button fx:id="btnCadastrarCurso" disable="true" layoutX="123.0" layoutY="414.0" mnemonicParsing="false" onAction="#abrirTelaCadastroVideo" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #587d9f;" text="Cadastrar curso" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
