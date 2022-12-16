@@ -42,18 +42,6 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="btnPlayVideo" layoutX="411.0" layoutY="26.0" mnemonicParsing="false" onAction="#playVideo" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: #587d9f;" text="Play" textFill="WHITE">
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@icones/play-fill.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
                               <Button fx:id="btnProximaAula" layoutX="467.0" layoutY="26.0" mnemonicParsing="false" onAction="#avancarAula" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: transparent; -fx-border-color: #2f373f; -fx-border-radius: 3;" text="Próxima aula" textFill="#2f373f">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -126,7 +114,7 @@
                                  <center>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                        <children>
-                                          <ListView fx:id="listaMateriaisDisponibilizados" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <ListView fx:id="listaMateriaisDisponibilizados" onMouseClicked="#acessarMateriaisDisponibilizados" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </center>
@@ -135,7 +123,7 @@
                                        <children>
                                           <HBox alignment="CENTER" prefHeight="59.0" prefWidth="377.0" spacing="20.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <Button fx:id="btnAcessarRecursos" mnemonicParsing="false" onAction="#acessarMateriaisDisponibilizados" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: #587d9f;" text="Acessar" textFill="WHITE">
+                                                <Button fx:id="btnAcessarRecursos" mnemonicParsing="false" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: #587d9f;" text="Acessar" textFill="WHITE">
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>

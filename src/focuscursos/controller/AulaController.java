@@ -1,15 +1,19 @@
 package focuscursos.controller;
 
+import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
 import focuscursos.model.entidade.Aula;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.MaterialDeApoio;
+import focuscursos.servicos.AulaServico;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -66,40 +70,109 @@ public class AulaController implements Initializable {
 
 	private Curso curso;
 
+	private int indiceVideoAtual = 0;
+
+	private AulaServico aulaServico = new AulaServico();
+
+	private Aula aulaAtual;
+
 	@FXML
-	void acessarMateriaisDisponibilizados(ActionEvent event) {
+	void acessarMateriaisDisponibilizados(MouseEvent event) {
+		MaterialDeApoio matApoio = aulaAtual.getMaterialDeApoio();
+
+		if (matApoio != null) {
+			try {
+				Desktop.getDesktop().browse(new URL(matApoio.getLink()).toURI());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 	}
 
 	@FXML
 	void avancarAula(ActionEvent event) {
+		Aula aulaSelecionada = null;
+		try {
+			aulaSelecionada = curso.getAulas().get(++indiceVideoAtual);
+		} catch (IndexOutOfBoundsException err) {
+			btnProximaAula.setDisable(true);
+		}
+
+		aulaAtual = aulaSelecionada;
+//		textAreaAnotacoes.setText(aulaAtual.getAnotacoes());
+		listaMateriaisDisponibilizados.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+		
+		if (aulaSelecionada != null) {
+			labelLoading.setVisible(true);
+
+			URL url = getClass().getResource("/focuscursos/view/util/index.html");
+			webViewVideo.getEngine().load(url.toString());
+
+			webViewVideo.getEngine().load(aulaSelecionada.getLinkVideo());
+
+			webViewVideo.getEngine().getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+				if (newState == webViewVideo.getEngine().getLoadWorker().getState().SUCCEEDED) {
+					labelLoading.setVisible(false);
+				}
+			});
+
+		}
 
 	}
 
 	@FXML
 	void cancelarAnotacao(ActionEvent event) {
-
-	}
-
-	@FXML
-	void playVideo(ActionEvent event) {
-
+		textAreaAnotacoes.setText("");
 	}
 
 	@FXML
 	void salvarAnotacao(ActionEvent event) {
-
+		try {
+			Aula aula = curso.getAulas().get(indiceVideoAtual);
+			aula.setAnotacoes(textAreaAnotacoes.getText());
+			aulaServico.gravarAnotacao(aula);
+		} catch (ClassNotFoundException | IOException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
 	}
 
 	@FXML
 	void voltarAula(ActionEvent event) {
+		Aula aulaSelecionada = null;
+		try {
+			aulaSelecionada = curso.getAulas().get(--indiceVideoAtual);
+		} catch (IndexOutOfBoundsException err) {
+			btnAulaAnterior.setDisable(true);
+		}
 
+		aulaAtual = aulaSelecionada;
+		textAreaAnotacoes.setText(aulaSelecionada.getAnotacoes());
+		listaMateriaisDisponibilizados.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+
+		if (aulaSelecionada != null) {
+			labelLoading.setVisible(true);
+
+			URL url = getClass().getResource("/focuscursos/view/util/index.html");
+			webViewVideo.getEngine().load(url.toString());
+
+			webViewVideo.getEngine().load(aulaSelecionada.getLinkVideo());
+
+			webViewVideo.getEngine().getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+				if (newState == webViewVideo.getEngine().getLoadWorker().getState().SUCCEEDED) {
+					labelLoading.setVisible(false);
+				}
+			});
+
+		}
 	}
 
 	@FXML
 	void voltarParaHomePage(ActionEvent event) {
 		try {
-			new NavegacaoTelas(borderpPrincipal).retornarParaHomePage();
+			URL url = getClass().getResource("/focuscursos/view/util/index.html");
+			webViewVideo.getEngine().load(url.toString());
+			new NavegacaoTelas(borderpPrincipal).novaJanela(Tela.HOMEPAGE_VIEW, "Homepage");
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
@@ -110,7 +183,6 @@ public class AulaController implements Initializable {
 	void irParaAula(MouseEvent event) {
 		Aula aulaSelecionada = listaAulas.getSelectionModel().getSelectedItem();
 
-
 		if (aulaSelecionada != null) {
 			labelLoading.setVisible(true);
 			webViewVideo.getEngine().load(aulaSelecionada.getLinkVideo());
@@ -120,6 +192,12 @@ public class AulaController implements Initializable {
 					labelLoading.setVisible(false);
 				}
 			});
+
+			aulaAtual = aulaSelecionada;
+			indiceVideoAtual = listaAulas.getSelectionModel().getSelectedIndex();
+			listaMateriaisDisponibilizados.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+
+			textAreaAnotacoes.setText(aulaSelecionada.getAnotacoes());
 		}
 	}
 

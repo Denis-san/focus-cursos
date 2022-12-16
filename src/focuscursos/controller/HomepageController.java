@@ -197,19 +197,23 @@ public class HomepageController implements Initializable {
 		Curso c1 = new Curso("Java - Orientação a objeto",
 				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
 				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
-		c1.getAulas().add(new Aula("Aula 1 - Testando os bglh", "https://www.youtube.com/embed/5YKNSZ7mE_A?autoplay=1", null, new MaterialDeApoio("teste1", "link")));
+		c1.getAulas().add(new Aula("Aula 1 - Testando os bglh", "https://www.youtube.com/embed/5YKNSZ7mE_A?autoplay=1", null, new MaterialDeApoio("google", "https://google.com")));
 		cursosTeste.add(c1);
+		c1.getAulas().add(new Aula("Aula 2 - Testando d", "https://www.youtube.com/embed/BIM_sbigj_Q?autoplay=1", null, new MaterialDeApoio("doc oracle", "https://docs.oracle.com/javase/8/javafx/embedded-browser-tutorial/js-javafx.htm")));
+		c1.getAulas().add(new Aula("Aula 3 - Testando ", "https://www.youtube.com/embed/5YKNSZ7mE_A?autoplay=1", null, new MaterialDeApoio("github", "https://github.com")));
+		c1.getAulas().add(new Aula("Aula 3 - Testando ", "https://www.youtube.com/embed/BdJbe-SYRxU?autoplay=1", null, new MaterialDeApoio("facebook", "https://facebook.com")));
+		c1.getAulas().add(new Aula("Aula 3 - Testando ", "https://www.youtube.com/embed/vpqtB5rniAc?autoplay=1", null, new MaterialDeApoio("drive", "https://drive.google.com")));
 		
 		Curso c2 = new Curso("Java - Orientação a objeto",
 				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
 				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
-		c1.getAulas().add(new Aula("Aula 2 - Testando os bglh", "https:/link", null, new MaterialDeApoio("teste2", "link")));
+		
 		cursosTeste.add(c2);
 		
 		Curso c3 = new Curso("Java - Orientação a objeto",
 				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
 				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
-		c1.getAulas().add(new Aula("Aula 3 - Testando os bglh", "https:/link", null, new MaterialDeApoio("teste3", "link")));
+		
 		cursosTeste.add(c3);
 
 		cursosTeste.add(new Curso("Educação financeira", "dasdsccxzcxc   xzczxa ",
