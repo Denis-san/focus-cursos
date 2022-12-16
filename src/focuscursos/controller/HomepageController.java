@@ -203,14 +203,16 @@ public class HomepageController implements Initializable {
 		Button gridBotoes[] = { btnCurso1, btnCurso2, btnCurso3, btnCurso4, btnCurso5, btnCurso6, btnCurso7, btnCurso8,
 				btnCurso9, btnCurso10, btnCurso11, btnCurso12 };
 
-		for (int i = 0; i < cursosCadastrados.size(); i++) {
-			try {
-				gridBotoes[i].setUserData(cursosCadastrados.get(i));
-				preencherBotaoCurso(gridBotoes[i]);
-				gridBotoes[i].setVisible(true);
-			} catch (ArrayIndexOutOfBoundsException e) {
-				gridBotoes[i].setVisible(false);
-				cursosCadastrados.remove(i);
+		if (cursosCadastrados != null) {
+			for (int i = 0; i < cursosCadastrados.size(); i++) {
+				try {
+					gridBotoes[i].setUserData(cursosCadastrados.get(i));
+					preencherBotaoCurso(gridBotoes[i]);
+					gridBotoes[i].setVisible(true);
+				} catch (ArrayIndexOutOfBoundsException e) {
+					gridBotoes[i].setVisible(false);
+					cursosCadastrados.remove(i);
+				}
 			}
 		}
 

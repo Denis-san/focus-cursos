@@ -100,9 +100,14 @@ public class AulaController implements Initializable {
 		}
 
 		aulaAtual = aulaSelecionada;
-//		textAreaAnotacoes.setText(aulaAtual.getAnotacoes());
-		listaMateriaisDisponibilizados.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
-		
+
+		if (aulaAtual != null) {
+			listaMateriaisDisponibilizados
+					.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+			labelTituloAula.setText(aulaAtual.getTitulo());
+			textAreaAnotacoes.setText(aulaAtual.getAnotacoes());
+		}
+
 		if (aulaSelecionada != null) {
 			labelLoading.setVisible(true);
 
@@ -148,7 +153,10 @@ public class AulaController implements Initializable {
 
 		aulaAtual = aulaSelecionada;
 		textAreaAnotacoes.setText(aulaSelecionada.getAnotacoes());
-		listaMateriaisDisponibilizados.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+		listaMateriaisDisponibilizados
+				.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+
+		labelTituloAula.setText(aulaAtual.getTitulo());
 
 		if (aulaSelecionada != null) {
 			labelLoading.setVisible(true);
@@ -195,7 +203,10 @@ public class AulaController implements Initializable {
 
 			aulaAtual = aulaSelecionada;
 			indiceVideoAtual = listaAulas.getSelectionModel().getSelectedIndex();
-			listaMateriaisDisponibilizados.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+			listaMateriaisDisponibilizados
+					.setItems(FXCollections.observableArrayList(Arrays.asList(aulaAtual.getMaterialDeApoio())));
+
+			labelTituloAula.setText(aulaAtual.getTitulo());
 
 			textAreaAnotacoes.setText(aulaSelecionada.getAnotacoes());
 		}
@@ -205,6 +216,7 @@ public class AulaController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		URL url = getClass().getResource("/focuscursos/view/util/index.html");
 		webViewVideo.getEngine().load(url.toString());
+
 	}
 
 	public void carregarCurso(Curso curso) {
@@ -219,6 +231,7 @@ public class AulaController implements Initializable {
 		ObservableList<Aula> observableArrayListAulas = FXCollections.observableArrayList(curso.getAulas());
 		listaAulas.setItems(observableArrayListAulas);
 
+		labelTituloAula.setText(curso.getAulas().get(0).getTitulo());
 	}
 
 }

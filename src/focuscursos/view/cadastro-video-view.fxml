@@ -195,7 +195,7 @@
                               </TextField>
                               <HBox alignment="CENTER_RIGHT" spacing="10.0">
                                  <children>
-                                    <Button fx:id="btnLimpar" mnemonicParsing="false" onAction="#limparCampos" prefHeight="27.0" prefWidth="95.0" style="-fx-border-color: #587d9f; -fx-background-color: transparent; -fx-border-radius: 3;" text="Limpar" textFill="#587d9f">
+                                    <Button fx:id="btnAtualizar" disable="true" mnemonicParsing="false" onAction="#atualizarAula" prefHeight="27.0" prefWidth="95.0" style="-fx-border-color: #587d9f; -fx-background-color: transparent; -fx-border-radius: 3;" text="Atualizar" textFill="#587d9f">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>

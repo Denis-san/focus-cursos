@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
 import focuscursos.model.entidade.Curso;
+import focuscursos.model.entidade.Instrutor;
 import focuscursos.model.entidade.Usuario;
 import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
 import focuscursos.servicos.CadastroServico;
@@ -81,8 +82,14 @@ public class ApresentacaoController implements Initializable {
 			usuario = loginServico.obterUsuarioLogado();
 
 			if (usuario.getCursos().contains(cursoSelecionado)) {
-				btnIncrever.setText("Assistir aulas");
 				btnIncrever.setStyle("-fx-background-color: white; -fx-border-color: #587d9f; -fx-text-fill: #587d9f;");
+
+				if (usuario instanceof Instrutor) {
+					btnIncrever.setText("Você é o instrutor desse curso!");
+					btnIncrever.setDisable(true);
+				} else {
+					btnIncrever.setText("Assistir aulas");
+				}
 			}
 
 		} catch (ClassNotFoundException | IOException e) {

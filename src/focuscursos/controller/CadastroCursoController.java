@@ -7,10 +7,14 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import focuscursos.controller.constantes.Tela;
+import focuscursos.controller.navegacao.NavegacaoTelas;
 import focuscursos.model.entidade.Aula;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
 import focuscursos.model.entidade.MaterialDeApoio;
+import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
+import focuscursos.servicos.CadastroServico;
 import focuscursos.servicos.CursoServico;
 import focuscursos.servicos.LoginServico;
 import javafx.collections.FXCollections;
@@ -42,7 +46,7 @@ public class CadastroCursoController {
 	private Button btnEditar;
 
 	@FXML
-	private Button btnLimpar;
+	private Button btnAtualizar;
 
 	@FXML
 	private Button btnRemoverAula;
@@ -80,19 +84,12 @@ public class CadastroCursoController {
 
 	private CursoServico cursoServico = new CursoServico();
 	
-	
+	private LoginServico loginServico = new LoginServico();
 
 	@FXML
 	void adicionarAula(ActionEvent event) {
-		Aula aula = new Aula();
-		aula.setTitulo(inputTituloAula.getText());
-		aula.setLinkVideo(inputLinkAula.getText());
 
-		MaterialDeApoio matApoio = new MaterialDeApoio();
-		matApoio.setNome(inputMaterialApoio.getText());
-		matApoio.setLink(inputLinkArquivo.getText());
-		aula.setMaterialDeApoio(matApoio);
-
+		Aula aula = instanciarAulaCampos();
 		aulasAdicionadas.add(aula);
 
 		ObservableList<Aula> observableArrayListAulas = FXCollections.observableArrayList(aulasAdicionadas);
@@ -118,29 +115,81 @@ public class CadastroCursoController {
 		curso.setUrlImagem(imageThumb);
 
 		curso.getAulas().addAll(aulasAdicionadas);
-		
 
 		try {
-			curso.setInstrutor((Instrutor) new LoginServico().obterUsuarioLogado());
+			// obtendo o usuario logado
+			Instrutor oldInstrutor = (Instrutor) new LoginServico().obterUsuarioLogado();
+			Instrutor instrutor = (Instrutor) new LoginServico().obterUsuarioLogado();
+			
+			// efetuando a relação instrutor curso
+			curso.setInstrutor(instrutor);
+			instrutor.getCursoCadastrados().add(curso);
+
+			// efetuando o cadastro do curso
 			cursoServico.cadastrarCurso(curso);
 			JOptionPane.showMessageDialog(null, "Curso cadastrado com sucesso!");
-		} catch (ClassNotFoundException | IOException e) {
+			
+			// guardando as novas alterações
+			loginServico.registrarLoginNoArquivo(instrutor);
+			new CadastroServico().atualizarCadastro(oldInstrutor, instrutor);
+			
+			// redirecionando para tela inicial
+			new NavegacaoTelas(borderPrincipal).novaJanela(Tela.HOMEPAGE_VIEW, "homepage");
+			
+		} catch (ClassNotFoundException | IOException | UsuarioNaoEncontradoException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
 	}
 
 	@FXML
 	void editarAula(ActionEvent event) {
+		Aula aulaSelecionada = listaAulaAdicionadas.getSelectionModel().getSelectedItem();
+
+		inputTituloAula.setText(aulaSelecionada.getTitulo());
+		inputLinkAula.setText(aulaSelecionada.getLinkVideo());
+		inputMaterialApoio.setText(aulaSelecionada.getMaterialDeApoio().getNome());
+		inputLinkArquivo.setText(aulaSelecionada.getMaterialDeApoio().getLink());
+
+		btnAdicionarAula.setDisable(true);
+		btnAtualizar.setDisable(false);
 
 	}
 
 	@FXML
-	void limparCampos(ActionEvent event) {
-		limparCamposAula();
+	void atualizarAula(ActionEvent event) {
+
+		if (btnAdicionarAula.isDisable()) {
+			Aula aulaSelecionada = instanciarAulaCampos();
+			int indexSelecionado = listaAulaAdicionadas.getSelectionModel().getSelectedIndex();
+
+			ObservableList<Aula> observableArrayListAulas = FXCollections.observableArrayList(aulasAdicionadas);
+			observableArrayListAulas.set(indexSelecionado, aulaSelecionada);
+
+			listaAulaAdicionadas.setItems(observableArrayListAulas);
+
+			aulasAdicionadas.set(indexSelecionado, aulaSelecionada);
+
+			limparCamposAula();
+
+			btnAdicionarAula.setDisable(false);
+			btnAtualizar.setDisable(true);
+		}
+
 	}
 
 	@FXML
 	void removerAula(ActionEvent event) {
+
+		Aula aulaSelecionada = listaAulaAdicionadas.getSelectionModel().getSelectedItem();
+		if (aulaSelecionada != null) {
+			ObservableList<Aula> observableArrayListAulas = FXCollections.observableArrayList(aulasAdicionadas);
+			observableArrayListAulas.remove(aulaSelecionada);
+
+			listaAulaAdicionadas.setItems(observableArrayListAulas);
+
+			aulasAdicionadas.remove(aulaSelecionada);
+
+		}
 
 	}
 
@@ -149,6 +198,19 @@ public class CadastroCursoController {
 		inputLinkAula.setText("");
 		inputMaterialApoio.setText("");
 		inputLinkArquivo.setText("");
+	}
+
+	private Aula instanciarAulaCampos() {
+		Aula aula = new Aula();
+		aula.setTitulo(inputTituloAula.getText());
+		aula.setLinkVideo(inputLinkAula.getText());
+
+		MaterialDeApoio matApoio = new MaterialDeApoio();
+		matApoio.setNome(inputMaterialApoio.getText());
+		matApoio.setLink(inputLinkArquivo.getText());
+		aula.setMaterialDeApoio(matApoio);
+
+		return aula;
 	}
 
 }

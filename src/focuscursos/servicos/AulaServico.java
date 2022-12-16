@@ -6,6 +6,7 @@ import java.util.List;
 import focuscursos.model.entidade.Aula;
 import focuscursos.model.persistencia.GenericArquivo;
 
+
 public class AulaServico {
 
 	private GenericArquivo<Aula> persistencia = new GenericArquivo<>();
@@ -14,6 +15,7 @@ public class AulaServico {
 		persistencia.cadastrar(aula, "arquivos/arquivoAnotacao.fc");
 	}
 	
+	// percorre no arquivo persistente procurando a anotacao da aula passada pelo parametro
 	public String obterAnotacaoDaAula(Aula aulaAtual) throws ClassNotFoundException, IOException {
 		List<Aula> aulas = persistencia.obterElementosCadastrados("arquivos/arquivoAnotacao.fc");
 		
