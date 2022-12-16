@@ -61,7 +61,6 @@ public class CadastroController {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
-
 	}
 
 	@FXML

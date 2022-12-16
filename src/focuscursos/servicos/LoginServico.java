@@ -32,10 +32,7 @@ public class LoginServico {
 	
 	public void fazerLogoff() throws IOException {
 		arquivoLogin.apagarDadosConta();
-		
 	}
-	
-	
 	
 	public Usuario obterUsuarioLogado() throws ClassNotFoundException, IOException {
 		return arquivoLogin.obterUsuarioLogado();

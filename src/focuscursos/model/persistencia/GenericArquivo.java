@@ -10,7 +10,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import focuscursos.model.entidade.Usuario;
 import focuscursos.model.persistencia.exception.UsuarioNaoEncontradoException;
 
 public class GenericArquivo<E extends Serializable> {
@@ -61,8 +60,6 @@ public class GenericArquivo<E extends Serializable> {
 
 		int indexElemento = elementos.indexOf(elementoAntigo);
 		
-		System.out.println("index: " + indexElemento);
-
 		elementos.set(indexElemento, novoElemento);
 
 		FileOutputStream fileOutput = new FileOutputStream(caminhoArquivo);

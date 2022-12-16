@@ -3,6 +3,7 @@ package focuscursos.controller.navegacao;
 import java.io.IOException;
 
 import focuscursos.controller.ApresentacaoController;
+import focuscursos.controller.AulaController;
 import focuscursos.controller.PerfilController;
 import focuscursos.controller.constantes.Tela;
 import focuscursos.model.entidade.Curso;
@@ -46,7 +47,7 @@ public class NavegacaoTelas {
 		Parent root = FXMLLoader.load(getClass().getResource(Tela.TELA_INICIAL));
 		painelPrincipal.getScene().setRoot(root);
 	}
-	
+
 	public void retornarParaHomePage() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource(Tela.HOMEPAGE_VIEW));
 		painelPrincipal.getScene().setRoot(root);
@@ -59,7 +60,7 @@ public class NavegacaoTelas {
 
 		ApresentacaoController controller = loader.getController();
 		controller.carregarCurso(cursoSelecionado);
-		
+
 		((Stage) painelPrincipal.getScene().getWindow()).setTitle(tituloJanela);
 
 		if (painelPrincipal.getCenter() == null || painelPrincipal.getCenter().getParent().equals(raiz) == false) {
@@ -67,21 +68,37 @@ public class NavegacaoTelas {
 		}
 
 	}
-	
+
 	public void mudarTela(String caminhoFxml, String tituloJanela, Usuario usuario) throws IOException {
-		
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(caminhoFxml));
 		Parent raiz = loader.load();
 
 		PerfilController controller = loader.getController();
 		controller.carregarDados(usuario);
-		
+
 		((Stage) painelPrincipal.getScene().getWindow()).setTitle(tituloJanela);
 
 		if (painelPrincipal.getCenter() == null || painelPrincipal.getCenter().getParent().equals(raiz) == false) {
 			painelPrincipal.setCenter(raiz);
 		}
 	}
-	
+
+	public void mudarParaTelaAula(Curso cursoSelecionado) throws IOException {
+
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(Tela.AULA_VIEW));
+		Parent raiz = loader.load();
+
+		AulaController controller = loader.getController();
+		controller.carregarCurso(cursoSelecionado);
+
+		Stage stage = new Stage();
+		stage.setTitle(cursoSelecionado.getTitulo());
+		stage.setScene(new Scene(raiz));
+		stage.getIcons().add(new Image("/focuscursos/view/icones/logo-favicon.png"));
+		((Stage) painelPrincipal.getScene().getWindow()).close();
+		stage.show();
+
+	}
 
 }

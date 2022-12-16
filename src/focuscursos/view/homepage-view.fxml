@@ -42,7 +42,7 @@
                   <Insets bottom="50.0" left="40.0" right="40.0" top="40.0" />
                </padding>
                <children>
-                  <Button fx:id="btnCurso1" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true">
+                  <Button fx:id="btnCurso1" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="137.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -67,7 +67,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso2" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1">
+                  <Button fx:id="btnCurso2" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="1">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -89,7 +89,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso3" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="2">
+                  <Button fx:id="btnCurso3" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="2">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -111,7 +111,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso4" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="3">
+                  <Button fx:id="btnCurso4" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="3">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -133,32 +133,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso5" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="1">
-                     <graphic>
-                        <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
-                           </image>
-                           <viewport>
-                              <Rectangle2D />
-                           </viewport>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                     <effect>
-                        <DropShadow>
-                           <color>
-                              <Color opacity="0.4099617004394531" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnCurso6" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="btnCurso5" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -183,7 +158,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso7" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="btnCurso6" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -208,7 +183,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso8" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="2">
+                  <Button fx:id="btnCurso7" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -233,7 +208,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso9" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button fx:id="btnCurso9" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.rowIndex="2">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -258,7 +233,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso10" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="btnCurso11" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -283,7 +258,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso11" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button fx:id="btnCurso10" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -308,7 +283,32 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCurso12" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <Button fx:id="btnCurso8" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Thumbs/northfolk-Ok76F6yW2iA-unsplash.jpg" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.4099617004394531" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnCurso12" contentDisplay="TOP" graphicTextGap="6.0" minHeight="153.0" minWidth="234.0" mnemonicParsing="false" onAction="#abrirApresentacoCurso" prefHeight="167.0" prefWidth="234.0" style="-fx-padding: -3 0 0 0; -fx-background-color: white; -fx-background-radius: 0;" text="Aula de JAVAFX - CONHECENDO A PORRA DESSA MERDA" textAlignment="JUSTIFY" visible="false" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <graphic>
                         <ImageView fitHeight="132.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>

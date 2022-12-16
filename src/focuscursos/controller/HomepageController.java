@@ -14,6 +14,7 @@ import focuscursos.model.entidade.Aluno;
 import focuscursos.model.entidade.Aula;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
+import focuscursos.model.entidade.MaterialDeApoio;
 import focuscursos.model.entidade.Usuario;
 import focuscursos.servicos.LoginServico;
 import javafx.collections.FXCollections;
@@ -107,8 +108,7 @@ public class HomepageController implements Initializable {
 			Curso cursoSelecionado = listaView.getSelectionModel().getSelectedItem();
 
 			if (cursoSelecionado != null) {
-				new NavegacaoTelas(painelPrincipal).novaJanela(Tela.AULA_VIEW,
-						cursoSelecionado.getAulas().get(0).getTitulo());
+				new NavegacaoTelas(painelPrincipal).mudarParaTelaAula(cursoSelecionado);
 			}
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
@@ -197,37 +197,45 @@ public class HomepageController implements Initializable {
 		Curso c1 = new Curso("Java - Orientação a objeto",
 				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
 				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
-		c1.getAulas().add(new Aula("Aula 1 - Conhecendo a plataforma", null, null, null));
+		c1.getAulas().add(new Aula("Aula 1 - Testando os bglh", "https://www.youtube.com/embed/5YKNSZ7mE_A?autoplay=1", null, new MaterialDeApoio("teste1", "link")));
 		cursosTeste.add(c1);
+		
+		Curso c2 = new Curso("Java - Orientação a objeto",
+				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
+				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
+		c1.getAulas().add(new Aula("Aula 2 - Testando os bglh", "https:/link", null, new MaterialDeApoio("teste2", "link")));
+		cursosTeste.add(c2);
+		
+		Curso c3 = new Curso("Java - Orientação a objeto",
+				"Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.[3] Diferente das linguagens de programação modernas, que são compiladas para código nativo, Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, abreviada JVM). A linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. A J2ME é utilizada em jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.",
+				"/focuscursos/view/capacurso/Img1.jpg", new Instrutor("Joaquin", null, null, null, null, null));
+		c1.getAulas().add(new Aula("Aula 3 - Testando os bglh", "https:/link", null, new MaterialDeApoio("teste3", "link")));
+		cursosTeste.add(c3);
 
-		cursosTeste.add(new Curso("Python - orientacao", "dasdsccxzcxc   xzczxa ",
+		cursosTeste.add(new Curso("Educação financeira", "dasdsccxzcxc   xzczxa ",
 				"/focuscursos/view/capacurso/Img2.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("C - orientacao a lista", "adsadsdasd ", "/focuscursos/view/capacurso/Img3.jpg",
+
+		cursosTeste.add(new Curso("Analista de finanças", "adsadsdasd ", "/focuscursos/view/capacurso/Img3.jpg",
 				new Instrutor()));
+
+		cursosTeste.add(new Curso("Produtividade em equipe", "Linguagem de doido",
+				"/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
+
 		cursosTeste.add(
-				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+				new Curso("Python do zero", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
+
+		cursosTeste.add(new Curso("Guia da carreira", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
 				new Instrutor()));
-		cursosTeste.add(
-				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+
+		cursosTeste.add(new Curso("Administração de empresas", "Linguagem de doido",
+				"/focuscursos/view/capacurso/Img7.jpg", new Instrutor()));
+
+		cursosTeste.add(new Curso("Técnicas de estudos", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img8.jpg",
 				new Instrutor()));
-		cursosTeste.add(
-				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+
+		cursosTeste.add(new Curso("Técnicas de leitura", "Que nada rapa", "/focuscursos/view/capacurso/Img9.jpg",
 				new Instrutor()));
-		cursosTeste.add(
-				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
-				new Instrutor()));
-		cursosTeste.add(
-				new Curso("Javascript", "Linguagem de doido", "/focuscursos/view/capacurso/Img4.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Cobol", "Ddjjiajljekd ", "/focuscursos/view/capacurso/Img5.jpg", new Instrutor()));
-		cursosTeste.add(new Curso("Ruby - Curso completo", "Que nada rapa", "/focuscursos/view/capacurso/Img6.jpg",
+		cursosTeste.add(new Curso("Álgebra Linear", "Linguagem de doido", "/focuscursos/view/capacurso/Img10.jpg",
 				new Instrutor()));
 
 		Button gridBotoes[] = { btnCurso1, btnCurso2, btnCurso3, btnCurso4, btnCurso5, btnCurso6, btnCurso7, btnCurso8,
@@ -237,7 +245,9 @@ public class HomepageController implements Initializable {
 			try {
 				gridBotoes[i].setUserData(cursosTeste.get(i));
 				preencherBotaoCurso(gridBotoes[i]);
+				gridBotoes[i].setVisible(true);
 			} catch (ArrayIndexOutOfBoundsException e) {
+				gridBotoes[i].setVisible(false);
 				cursosTeste.remove(i);
 			}
 		}

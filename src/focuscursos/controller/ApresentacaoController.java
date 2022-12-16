@@ -56,7 +56,7 @@ public class ApresentacaoController implements Initializable {
 			if (usuario.getCursos().contains(curso) == false) {
 				cadastroUsuarioServico.inscreverUsuarioCurso(usuario, curso);
 			}
-			new NavegacaoTelas(borderSecundario).novaJanela(Tela.AULA_VIEW, curso.getAulas().get(0).getTitulo());
+			new NavegacaoTelas(borderSecundario).mudarParaTelaAula(curso);
 		} catch (ClassNotFoundException | IOException | UsuarioNaoEncontradoException e) {
 			JOptionPane.showMessageDialog(null, "Erro! \n" + e.getMessage());
 		}
@@ -83,7 +83,6 @@ public class ApresentacaoController implements Initializable {
 			if (usuario.getCursos().contains(cursoSelecionado)) {
 				btnIncrever.setText("Assistir aulas");
 				btnIncrever.setStyle("-fx-background-color: white; -fx-border-color: #587d9f; -fx-text-fill: #587d9f;");
-
 			}
 
 		} catch (ClassNotFoundException | IOException e) {

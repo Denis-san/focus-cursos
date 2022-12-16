@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 import focuscursos.controller.constantes.Tela;
 import focuscursos.controller.navegacao.NavegacaoTelas;
-import focuscursos.model.entidade.Aluno;
 import focuscursos.model.entidade.Curso;
 import focuscursos.model.entidade.Instrutor;
 import focuscursos.model.entidade.Usuario;

@@ -35,4 +35,9 @@ public class MaterialDeApoio implements Serializable {
 		this.link = link;
 	}
 
+	@Override
+	public String toString() {
+		return nome;
+	}
+
 }

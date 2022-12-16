@@ -55,4 +55,9 @@ public class Aula implements Serializable {
 		this.materialDeApoio = materialDeApoio;
 	}
 
+	@Override
+	public String toString() {
+		return titulo;
+	}
+
 }
